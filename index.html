@@ -1,0 +1,2655 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="あらき主催ライブ「大響宴 -DAIKYOEN-」2026年5月23日(土) EX THEATER ROPPONGI にて開催。昼公演：歌ってみた / 夜公演：オリジナル曲。チケット情報・グッズ情報はこちら。">
+<meta property="og:title" content="大響宴 -DAIKYOEN- | 2026.5.23 SAT">
+<meta property="og:description" content="あらき主催ライブ「大響宴 -DAIKYOEN-」2026年5月23日(土) EX THEATER ROPPONGI｜昼公演：歌ってみた / 夜公演：オリジナル曲">
+<meta property="og:image" content="https://araki-live.jp/daikyoen/img/og-image.jpg">
+<meta property="og:url" content="https://araki-live.jp/daikyoen/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://araki-live.jp/daikyoen/img/og-image.jpg">
+<link rel="canonical" href="https://araki-live.jp/daikyoen/">
+<link rel="icon" href="img/favicon.ico">
+<title>大響宴 -DAIKYOEN- | 2026.5.23 SAT | EX THEATER ROPPONGI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;800&family=Zen+Kaku+Gothic+New:wght@300;500;700&display=swap" rel="stylesheet">
+<style>
+/* ========================================
+   CSS Variables - 和風・幻想的テーマ
+======================================== */
+:root {
+  --font-mincho: 'Shippori Mincho', 'Noto Serif JP', serif;
+  --font-gothic: 'Zen Kaku Gothic New', sans-serif;
+  --bg: #0c0a0f;
+  --bg-light: #13111a;
+  --fg: #e8e2d6;
+  --fg-dim: #a89e8c;
+  --accent: #c4956a;
+  --sakura: #d4a0a0;
+  --gold: #b8a472;
+  --indigo: #2d2845;
+  --warm: #e07b39;
+  --cool: #6b7fd7;
+}
+
+/* ========================================
+   Animations
+======================================== */
+@keyframes mist-drift {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-30%); }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes reveal {
+  0% {
+    clip-path: inset(100% 0 0 0);
+    opacity: 0;
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+
+@keyframes cta-pulse {
+  0%, 100% { opacity: 0; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.015); }
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  50%, 100% { left: 100%; }
+}
+
+@keyframes floatCard {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes borderGlow {
+  0%, 100% { 
+    box-shadow: 0 0 5px rgba(212, 168, 83, 0.3), inset 0 0 5px rgba(212, 168, 83, 0.1);
+  }
+  50% { 
+    box-shadow: 0 0 20px rgba(212, 168, 83, 0.5), inset 0 0 10px rgba(212, 168, 83, 0.2);
+  }
+}
+
+@keyframes nowLive {
+  0%, 100% { 
+    background-position: 0% 50%;
+    box-shadow: 0 0 15px rgba(196, 149, 106, 0.3);
+  }
+  50% { 
+    background-position: 100% 50%;
+    box-shadow: 0 0 25px rgba(196, 149, 106, 0.5);
+  }
+}
+
+/* ========================================
+   Reset & Base
+======================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-mincho);
+  background-color: var(--bg);
+  color: var(--fg);
+  line-height: 1.9;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Scroll Animation Base */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========================================
+   Header
+======================================== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(12, 10, 15, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(184, 164, 114, 0.1);
+  transition: background 0.3s ease;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.8rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  z-index: 1001;
+}
+
+.header-logo img {
+  height: 40px;
+  width: auto;
+}
+
+/* Hamburger Menu Button - 廃止 */
+.hamburger {
+  display: none;
+}
+
+/* Mobile Menu Overlay - 廃止 */
+.menu-overlay {
+  display: none;
+}
+
+/* Navigation - 常に表示 */
+.header-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.header-nav a {
+  font-family: var(--font-mincho);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  color: var(--fg-dim);
+  padding: 0.4rem 0.5rem;
+  position: relative;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+.header-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.header-nav a:hover {
+  color: var(--gold);
+}
+
+.header-nav a:hover::after {
+  width: 60%;
+  left: 20%;
+}
+
+@media (min-width: 768px) {
+  .header-nav {
+    gap: 0.5rem;
+  }
+  
+  .header-nav a {
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    padding: 0.5rem 1rem;
+  }
+  
+  .header-logo img {
+    height: 44px;
+  }
+}
+
+/* ========================================
+   Hero Section - 幻想的演出
+======================================== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+/* 背景グラデーション */
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 40%, rgba(45,40,69,0.5), transparent),
+    radial-gradient(ellipse 60% 40% at 30% 70%, rgba(196,149,106,0.12), transparent),
+    radial-gradient(ellipse 50% 50% at 70% 30%, rgba(212,160,160,0.1), transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 霧エフェクト */
+.mist {
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  top: 0;
+  pointer-events: none;
+  will-change: transform;
+  z-index: 2;
+}
+
+.mist-1 {
+  background:
+    radial-gradient(ellipse 40% 30% at 30% 60%, rgba(212,160,160,0.25), transparent),
+    radial-gradient(ellipse 50% 40% at 70% 40%, rgba(45,40,69,0.5), transparent);
+  animation: mist-drift 25s ease-in-out infinite alternate;
+}
+
+.mist-2 {
+  background:
+    radial-gradient(ellipse 35% 25% at 60% 70%, rgba(184,164,114,0.2), transparent),
+    radial-gradient(ellipse 45% 35% at 25% 30%, rgba(212,160,160,0.2), transparent);
+  animation: mist-drift 30s ease-in-out infinite alternate-reverse;
+  opacity: 0.6;
+}
+
+/* KV背景（ブラー→クリア リビール効果） */
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  filter: blur(30px);
+  opacity: 0;
+  transform: scale(1.1);
+  transition: filter 2.5s ease-out, opacity 2s ease-out, transform 3s ease-out;
+}
+
+.hero-bg.revealed {
+  filter: blur(0);
+  opacity: 1;
+  transform: scale(1);
+}
+
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(12, 10, 15, 0.5) 0%,
+    rgba(12, 10, 15, 0.2) 30%,
+    rgba(12, 10, 15, 0.2) 50%,
+    rgba(12, 10, 15, 0.6) 75%,
+    rgba(12, 10, 15, 1) 100%
+  );
+}
+
+@media (max-width: 768px) {
+  .hero-bg img {
+    object-fit: contain;
+    object-position: center top;
+    margin-top: 60px;
+  }
+  
+  .hero-bg {
+    background: linear-gradient(180deg, #1a1520 0%, #0f1218 50%, var(--bg) 100%);
+  }
+}
+
+/* 桜花びらCanvas */
+#petals {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* ヒーローコンテンツ */
+.hero-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: 6rem 1.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* 縦書きタイトル（ロゴ画像） */
+.hero-title-vertical {
+  position: relative;
+  opacity: 0;
+  animation: fadeInUp 1.2s ease 0.5s forwards;
+}
+
+.hero-title-vertical img {
+  height: clamp(180px, 40vw, 320px);
+  width: auto;
+  filter: drop-shadow(0 0 60px rgba(196,149,106,0.3));
+}
+
+/* 日付（漢数字） */
+.hero-date-kanji {
+  font-family: var(--font-mincho);
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  font-weight: 400;
+  letter-spacing: 0.4em;
+  color: var(--gold);
+  opacity: 0;
+  animation: fadeInUp 1s ease 1s forwards;
+}
+
+/* 会場名 */
+.hero-venue {
+  font-family: var(--font-mincho);
+  font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+  letter-spacing: 0.3em;
+  color: var(--fg-dim);
+  opacity: 0;
+  animation: fadeInUp 1s ease 1.3s forwards;
+}
+
+/* ========================================
+   和風区切り線
+======================================== */
+.wa-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 3rem 0;
+}
+
+.wa-divider .line {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.wa-divider .diamond {
+  width: 5px;
+  height: 5px;
+  background: var(--gold);
+  transform: rotate(45deg);
+  opacity: 0.5;
+}
+
+/* ========================================
+   Section Common
+======================================== */
+.section {
+  padding: 5rem 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-label {
+  font-family: var(--font-gothic);
+  font-size: 0.7rem;
+  font-weight: 300;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-family: var(--font-mincho);
+  font-size: clamp(1.3rem, 4vw, 1.6rem);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+}
+
+/* ========================================
+   About Section - タイピングエフェクト
+======================================== */
+.about {
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-light) 100%);
+  position: relative;
+}
+
+.about-gradient {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 40% at 50% 50%, rgba(45,40,69,0.3), transparent);
+  pointer-events: none;
+}
+
+.about-content {
+  position: relative;
+  z-index: 1;
+}
+
+.typing-wrap {
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.typing-text {
+  font-family: var(--font-mincho);
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  color: var(--fg);
+  letter-spacing: 0.1em;
+  line-height: 2.2;
+}
+
+.typing-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.2em;
+  background: var(--sakura);
+  margin-left: 3px;
+  vertical-align: text-bottom;
+  animation: blink 1s steps(1) infinite;
+}
+
+/* ========================================
+   Live Info Section
+======================================== */
+.live-info {
+  background: var(--bg-light);
+  position: relative;
+}
+
+.live-info-gradient {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 50%, rgba(45,40,69,0.25), transparent);
+  pointer-events: none;
+}
+
+.live-info-content {
+  position: relative;
+  z-index: 1;
+}
+
+.live-date-main {
+  text-align: center;
+  font-family: var(--font-mincho);
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  margin-bottom: 0.5rem;
+  color: var(--fg);
+}
+
+.live-venue-name {
+  text-align: center;
+  font-family: var(--font-gothic);
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  color: var(--fg-dim);
+  margin-bottom: 2.5rem;
+}
+
+.live-shows {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.live-show {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(184, 164, 114, 0.15);
+  padding: 2rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  text-align: center;
+}
+
+.live-show:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.live-show::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+}
+
+.live-show.daytime::before {
+  background: linear-gradient(90deg, var(--warm), var(--gold));
+}
+
+.live-show.nighttime::before {
+  background: linear-gradient(90deg, var(--cool), var(--indigo));
+}
+
+.live-show-label {
+  font-family: var(--font-gothic);
+  font-size: 0.7rem;
+  font-weight: 300;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.live-show.daytime .live-show-label {
+  color: var(--warm);
+}
+
+.live-show.nighttime .live-show-label {
+  color: var(--cool);
+}
+
+.live-show-title {
+  font-family: var(--font-mincho);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+}
+
+.live-show-time {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  font-family: var(--font-gothic);
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: var(--fg-dim);
+}
+
+.live-show-time span {
+  font-size: 0.65rem;
+  margin-right: 0.5rem;
+  opacity: 0.7;
+}
+
+.listen-btn {
+  display: inline-block;
+  margin-top: 1.2rem;
+  padding: 0.5rem 1.5rem;
+  font-family: var(--font-gothic);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: var(--fg-dim);
+  border: 1px solid rgba(184, 164, 114, 0.3);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.listen-btn:hover {
+  color: var(--gold);
+  border-color: var(--gold);
+  background: rgba(192, 160, 98, 0.05);
+}
+
+@media (min-width: 640px) {
+  .live-shows {
+    flex-direction: row;
+  }
+
+  .live-show {
+    flex: 1;
+  }
+}
+
+/* Performers */
+.performers {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.performers-title {
+  font-family: var(--font-gothic);
+  font-size: 0.7rem;
+  font-weight: 300;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+}
+
+.performers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  max-width: 460px;
+  margin: 0 auto;
+}
+
+.performer-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+.performer-role {
+  font-family: var(--font-gothic);
+  font-size: 0.65rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  min-width: 90px;
+  text-align: right;
+}
+
+.performer-name {
+  font-family: var(--font-mincho);
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  min-width: 120px;
+  text-align: left;
+}
+
+.performer-x-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid rgba(184, 164, 114, 0.2);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.performer-x-link:hover {
+  border-color: var(--gold);
+  background: rgba(184, 164, 114, 0.1);
+}
+
+.performer-x-link svg {
+  width: 12px;
+  height: 12px;
+  fill: var(--fg-dim);
+  transition: fill 0.3s ease;
+}
+
+.performer-x-link:hover svg {
+  fill: var(--gold);
+}
+
+@media (max-width: 480px) {
+  .performer-role {
+    min-width: 70px;
+    font-size: 0.6rem;
+  }
+
+  .performer-name {
+    font-size: 0.8rem;
+    min-width: 100px;
+  }
+}
+
+/* ========================================
+   Ticket Section
+======================================== */
+.ticket {
+  background: var(--bg);
+  position: relative;
+}
+
+.ticket-gradient {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 40%, rgba(45,40,69,0.4), transparent),
+    radial-gradient(ellipse 60% 40% at 30% 60%, rgba(196,149,106,0.1), transparent),
+    radial-gradient(ellipse 50% 50% at 70% 30%, rgba(212,160,160,0.08), transparent);
+  pointer-events: none;
+}
+
+.ticket-content {
+  position: relative;
+  z-index: 1;
+}
+
+.ticket-types {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.ticket-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(184, 164, 114, 0.12);
+  padding: 1.5rem;
+  display: block;
+  text-align: center;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.ticket-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(184, 164, 114, 0.3);
+}
+
+.ticket-card.featured {
+  border-color: rgba(184, 164, 114, 0.3);
+  background: linear-gradient(135deg, rgba(196, 149, 106, 0.05) 0%, rgba(45, 40, 69, 0.05) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.ticket-card.featured::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(184, 164, 114, 0.1), transparent);
+  animation: shimmer 4s ease-in-out infinite;
+}
+
+.ticket-card-badge {
+  font-family: var(--font-gothic);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: var(--gold);
+  padding: 0.25rem 0.75rem;
+  display: inline-block;
+  margin-bottom: 0.8rem;
+  position: relative;
+  z-index: 1;
+}
+
+.ticket-card-name {
+  font-family: var(--font-mincho);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 0.3rem;
+}
+
+.ticket-card-price {
+  font-family: var(--font-gothic);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--fg);
+  position: relative;
+  z-index: 1;
+}
+
+.ticket-card-price small {
+  font-size: 0.65rem;
+  font-weight: 300;
+  color: var(--fg-dim);
+  margin-left: 0.25rem;
+}
+
+.ticket-card-details {
+  font-family: var(--font-gothic);
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: var(--fg-dim);
+  line-height: 1.8;
+  position: relative;
+  z-index: 1;
+  margin-top: 0.5rem;
+}
+
+/* SOLD OUT バッジ（小・LIVE INFOカード用） */
+.live-show-sold-out {
+  display: inline-block;
+  font-family: var(--font-gothic);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #c0392b;
+  border: 1.5px solid #c0392b;
+  padding: 0.15rem 0.6rem;
+  border-radius: 3px;
+  margin-top: 0.8rem;
+}
+
+/* SOLD OUT オーバーレイ */
+.ticket-card.sold-out {
+  position: relative;
+  pointer-events: none;
+}
+
+.ticket-card.sold-out::after {
+  content: 'SOLD OUT';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-18deg);
+  font-family: var(--font-gothic);
+  font-size: clamp(1.6rem, 5vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #c0392b;
+  border: 3px solid #c0392b;
+  padding: 0.3rem 1.5rem;
+  border-radius: 6px;
+  text-shadow: 0 0 20px rgba(192, 57, 43, 0.4);
+  box-shadow: 0 0 15px rgba(192, 57, 43, 0.15);
+  z-index: 5;
+  white-space: nowrap;
+}
+
+.ticket-card.sold-out .ticket-card-name,
+.ticket-card.sold-out .ticket-card-price,
+.ticket-card.sold-out .ticket-card-details,
+.ticket-card.sold-out .ticket-card-badge {
+  opacity: 0.3;
+}
+
+/* チケット発券方法の注記 */
+.ticket-issue-note {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1.2rem 1.5rem;
+  border: 1px solid rgba(192, 160, 98, 0.3);
+  border-radius: 8px;
+  background: rgba(192, 160, 98, 0.05);
+}
+
+.ticket-issue-note p {
+  font-size: clamp(0.85rem, 2.2vw, 0.95rem);
+  color: rgba(245, 240, 230, 0.9);
+  margin: 0.3rem 0;
+  letter-spacing: 0.05em;
+}
+
+.ticket-issue-note strong {
+  color: var(--gold);
+}
+
+.ticket-issue-sub {
+  font-size: clamp(0.75rem, 1.8vw, 0.82rem) !important;
+  color: rgba(245, 240, 230, 0.6) !important;
+  margin-top: 0.6rem !important;
+}
+
+/* CTA Buttons - パルスグロー付き */
+.ticket-cta {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  align-items: center;
+}
+
+.cta-heading {
+  font-family: var(--font-mincho);
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--fg);
+  text-align: center;
+}
+
+.cta-heading-sub {
+  font-family: var(--font-gothic);
+  font-size: 0.75rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: var(--fg-dim);
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.cta-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.3rem 2rem;
+  font-family: var(--font-mincho);
+  font-size: clamp(0.85rem, 2vw, 0.95rem);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--fg);
+  background: transparent;
+  border: 1px solid var(--accent);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cta-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--accent), #a07850);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: -1;
+}
+
+.cta-btn:hover::before {
+  transform: scaleX(1);
+}
+
+.cta-btn:hover {
+  border-color: transparent;
+}
+
+.cta-btn::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border: 1px solid var(--accent);
+  opacity: 0;
+  animation: cta-pulse 2.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.cta-btn-sub {
+  font-family: var(--font-gothic);
+  font-size: 0.65rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  opacity: 0.7;
+  margin-top: 0.4rem;
+  transition: opacity 0.3s ease;
+}
+
+.cta-btn:hover .cta-btn-sub {
+  opacity: 1;
+}
+
+/* 2つ目のCTAボタンは色違い（オフィシャル用：青） */
+.cta-btn.secondary {
+  border-color: var(--cool);
+}
+
+.cta-btn.secondary::before {
+  background: linear-gradient(135deg, var(--cool), #4a5a9f);
+}
+
+.cta-btn.secondary::after {
+  border-color: var(--cool);
+}
+
+/* FC用：赤系 */
+.cta-btn.primary {
+  border-color: #c45c5c;
+}
+
+.cta-btn.primary::before {
+  background: linear-gradient(135deg, #c45c5c, #8b3a3a);
+}
+
+.cta-btn.primary::after {
+  border-color: #c45c5c;
+}
+
+/* プレイガイド別カラー */
+.cta-btn.ltike {
+  border-color: #0068b7;
+}
+.cta-btn.ltike::before {
+  background: linear-gradient(135deg, #0068b7, #004a8a);
+}
+.cta-btn.ltike::after {
+  border-color: #0068b7;
+}
+
+.cta-btn.eplus {
+  border-color: #f5811f;
+}
+.cta-btn.eplus::before {
+  background: linear-gradient(135deg, #f5811f, #d06a10);
+}
+.cta-btn.eplus::after {
+  border-color: #f5811f;
+}
+
+.cta-btn.pia {
+  border-color: #e60012;
+}
+.cta-btn.pia::before {
+  background: linear-gradient(135deg, #e60012, #b8000e);
+}
+.cta-btn.pia::after {
+  border-color: #e60012;
+}
+
+.cta-btn .cta-icon {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-right: 0.4rem;
+  vertical-align: middle;
+}
+
+/* プレイガイドボタンは常に縦並び・最大幅制限 */
+.ticket-cta .cta-btn.ltike,
+.ticket-cta .cta-btn.eplus,
+.ticket-cta .cta-btn.pia {
+  max-width: 400px;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .ticket-types {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+/* Schedule - Timeline UI */
+.ticket-schedule {
+  margin-top: 3rem;
+}
+
+.ticket-schedule-title {
+  text-align: center;
+  font-family: var(--font-gothic);
+  font-size: 0.8rem;
+  font-weight: 300;
+  letter-spacing: 0.3em;
+  margin-bottom: 2rem;
+  color: var(--fg-dim);
+}
+
+.schedule-timeline {
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+  padding-left: 2rem;
+}
+
+/* 縦のライン */
+.schedule-timeline::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--gold), rgba(184, 164, 114, 0.2));
+}
+
+.timeline-item {
+  position: relative;
+  padding: 0 0 2rem 1.5rem;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+/* ドット */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -2rem;
+  top: 0.5rem;
+  width: 13px;
+  height: 13px;
+  background: var(--bg);
+  border: 2px solid rgba(184, 164, 114, 0.4);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.timeline-item:hover::before {
+  border-color: var(--gold);
+  box-shadow: 0 0 10px rgba(184, 164, 114, 0.5);
+}
+
+/* 受付中の強調 */
+.timeline-item.now-active::before {
+  border-color: var(--accent);
+  background: var(--accent);
+  box-shadow: 0 0 15px rgba(196, 149, 106, 0.6);
+}
+
+.timeline-content {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(184, 164, 114, 0.1);
+  padding: 1rem 1.25rem;
+  transition: all 0.3s ease;
+}
+
+.timeline-item:hover .timeline-content {
+  border-color: rgba(184, 164, 114, 0.25);
+  transform: translateX(4px);
+}
+
+.timeline-item.now-active .timeline-content {
+  border-color: rgba(196, 149, 106, 0.3);
+  background: linear-gradient(135deg, rgba(196, 149, 106, 0.06) 0%, rgba(45, 40, 69, 0.06) 100%);
+}
+
+/* 受付終了の表示 */
+.timeline-item.ended::before {
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: none;
+}
+
+.timeline-item.ended .timeline-content {
+  opacity: 0.4;
+  border-color: rgba(255, 255, 255, 0.05);
+  position: relative;
+}
+
+.timeline-item.ended .timeline-name {
+  text-decoration: line-through;
+  text-decoration-color: rgba(245, 240, 230, 0.4);
+}
+
+.timeline-item.ended .timeline-date::after {
+  content: '（受付終了）';
+  margin-left: 0.5em;
+  color: rgba(245, 240, 230, 0.5);
+  font-size: 0.7rem;
+}
+
+/* CTAボタン無効化 */
+.cta-btn.disabled {
+  pointer-events: none;
+  opacity: 0.35;
+  filter: grayscale(1);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.cta-btn.disabled::before,
+.cta-btn.disabled::after {
+  display: none;
+}
+
+.timeline-name {
+  font-family: var(--font-mincho);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.timeline-date {
+  font-family: var(--font-gothic);
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: var(--fg-dim);
+}
+
+@media (max-width: 480px) {
+  .schedule-timeline {
+    padding-left: 1.5rem;
+  }
+  
+  .timeline-item::before {
+    left: -1.5rem;
+    width: 11px;
+    height: 11px;
+  }
+}
+
+/* ========================================
+   Goods Section
+======================================== */
+.goods {
+  background: var(--bg-light);
+  position: relative;
+}
+
+.goods-gradient {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 30%, rgba(45,40,69,0.35), transparent),
+    radial-gradient(ellipse 50% 40% at 30% 70%, rgba(196,149,106,0.1), transparent),
+    radial-gradient(ellipse 40% 30% at 70% 60%, rgba(212,160,160,0.08), transparent);
+  pointer-events: none;
+}
+
+.goods-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.goods-benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.goods-benefit-item {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(184, 164, 114, 0.12);
+  padding: 2rem 1.5rem;
+  position: relative;
+  transition: transform 0.4s ease;
+  animation: floatCard 4s ease-in-out infinite;
+}
+
+.goods-benefit-item:nth-child(2) {
+  animation-delay: -2s;
+}
+
+.goods-benefit-item:hover {
+  transform: translateY(-5px) scale(1.02);
+}
+
+.goods-benefit-item.featured {
+  border-color: rgba(184, 164, 114, 0.3);
+  animation: floatCard 4s ease-in-out infinite, borderGlow 3s ease-in-out infinite;
+}
+
+.goods-benefit-label {
+  font-family: var(--font-gothic);
+  font-size: 0.65rem;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.8rem;
+}
+
+.goods-benefit-title {
+  font-family: var(--font-mincho);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.goods-benefit-desc {
+  font-family: var(--font-gothic);
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: var(--fg-dim);
+}
+
+.goods-item-name {
+  font-family: var(--font-mincho);
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  margin-top: 0.8rem;
+  background: linear-gradient(
+    90deg,
+    var(--gold) 0%,
+    #e8d5a3 25%,
+    var(--accent) 50%,
+    #e8d5a3 75%,
+    var(--gold) 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: goldShimmer 3s ease-in-out infinite;
+  text-shadow: none;
+  position: relative;
+}
+
+@keyframes goldShimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.goods-note {
+  font-family: var(--font-gothic);
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: var(--fg-dim);
+}
+
+@media (min-width: 640px) {
+  .goods-benefits {
+    flex-direction: row;
+  }
+  
+  .goods-benefit-item {
+    flex: 1;
+  }
+}
+
+/* ========================================
+   Notice Section
+======================================== */
+.notice {
+  background: var(--bg);
+  position: relative;
+}
+
+.notice-gradient {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 40% at 50% 50%, rgba(45,40,69,0.25), transparent),
+    radial-gradient(ellipse 40% 30% at 70% 30%, rgba(196,149,106,0.06), transparent);
+  pointer-events: none;
+}
+
+.notice-content {
+  position: relative;
+  z-index: 1;
+}
+
+.notice-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.notice-item {
+  border: 1px solid rgba(184, 164, 114, 0.1);
+  background: rgba(255, 255, 255, 0.01);
+  transition: border-color 0.3s ease;
+}
+
+.notice-item:hover {
+  border-color: rgba(184, 164, 114, 0.2);
+}
+
+.notice-item summary {
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  font-family: var(--font-mincho);
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  transition: color 0.3s ease;
+}
+
+.notice-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.notice-item summary::after {
+  content: '+';
+  font-family: var(--font-gothic);
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: var(--gold);
+  transition: transform 0.3s ease;
+}
+
+.notice-item[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.notice-item summary:hover {
+  color: var(--gold);
+}
+
+.notice-item-content {
+  padding: 0 1.5rem 1.5rem;
+  font-family: var(--font-gothic);
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: var(--fg-dim);
+  line-height: 2;
+}
+
+.notice-item-content ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.notice-item-content li {
+  position: relative;
+  padding-left: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.notice-item-content li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.9em;
+  width: 4px;
+  height: 4px;
+  background: var(--gold);
+  border-radius: 50%;
+}
+
+/* ========================================
+   Torisetsu Link (Glitch Effect)
+======================================== */
+.torisetsu-link {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.glitch-text {
+  display: inline-block;
+  font-family: var(--font-gothic);
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  color: var(--fg);
+  padding: 1rem 2.5rem;
+  border: 1px solid rgba(184, 164, 114, 0.3);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.glitch-text:hover {
+  border-color: var(--gold);
+  text-shadow: 0 0 8px rgba(196, 149, 106, 0.5);
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2.5rem;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.glitch-text::before {
+  color: var(--sakura);
+  z-index: 1;
+}
+
+.glitch-text::after {
+  color: var(--cool);
+  z-index: 2;
+}
+
+.glitch-text:hover::before {
+  animation: glitch-1 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+  opacity: 0.8;
+}
+
+.glitch-text:hover::after {
+  animation: glitch-2 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite reverse;
+  opacity: 0.8;
+}
+
+/* SP: hover不可のデバイスでは常時軽めグリッチ */
+@media (hover: none) {
+  .glitch-text::before {
+    animation: glitch-1 4s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+    opacity: 0.4;
+  }
+
+  .glitch-text::after {
+    animation: glitch-2 4s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite reverse;
+    opacity: 0.4;
+  }
+}
+
+@keyframes glitch-1 {
+  0% { clip-path: inset(40% 0 61% 0); transform: translate(-2px, -1px); }
+  20% { clip-path: inset(92% 0 1% 0); transform: translate(1px, 2px); }
+  40% { clip-path: inset(43% 0 1% 0); transform: translate(-1px, -1px); }
+  60% { clip-path: inset(25% 0 58% 0); transform: translate(2px, 1px); }
+  80% { clip-path: inset(54% 0 7% 0); transform: translate(-1px, 2px); }
+  100% { clip-path: inset(58% 0 43% 0); transform: translate(0); }
+}
+
+@keyframes glitch-2 {
+  0% { clip-path: inset(65% 0 13% 0); transform: translate(2px, 1px); }
+  20% { clip-path: inset(15% 0 62% 0); transform: translate(-1px, -2px); }
+  40% { clip-path: inset(72% 0 9% 0); transform: translate(1px, 2px); }
+  60% { clip-path: inset(5% 0 74% 0); transform: translate(-2px, -1px); }
+  80% { clip-path: inset(37% 0 28% 0); transform: translate(1px, -1px); }
+  100% { clip-path: inset(28% 0 55% 0); transform: translate(0); }
+}
+
+/* ========================================
+   Contact Section
+======================================== */
+.contact {
+  background: var(--bg-light);
+  text-align: center;
+  position: relative;
+}
+
+.contact-gradient {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 50%, rgba(45,40,69,0.3), transparent),
+    radial-gradient(ellipse 50% 40% at 30% 30%, rgba(212,160,160,0.08), transparent);
+  pointer-events: none;
+}
+
+.contact-content {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-item {
+  margin-bottom: 2rem;
+}
+
+.contact-label {
+  font-family: var(--font-gothic);
+  font-size: 0.7rem;
+  font-weight: 300;
+  color: var(--fg-dim);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.contact-value {
+  font-family: var(--font-mincho);
+  font-size: 1rem;
+}
+
+.contact-btn {
+  display: inline-block;
+  font-family: var(--font-mincho);
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  color: var(--fg);
+  background: transparent;
+  border: 1px solid rgba(184, 164, 114, 0.3);
+  padding: 1rem 2.5rem;
+  margin-top: 1rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.contact-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(184, 164, 114, 0.15), transparent);
+  transition: left 0.5s ease;
+}
+
+.contact-btn:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.contact-btn:hover::before {
+  left: 100%;
+}
+
+/* ========================================
+   Footer
+======================================== */
+.footer {
+  background: var(--bg);
+  padding: 3rem 1.5rem 6rem;
+  text-align: center;
+  border-top: 1px solid rgba(184, 164, 114, 0.1);
+}
+
+.footer-logo {
+  font-family: var(--font-mincho);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.footer-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  color: var(--fg-dim);
+  transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: var(--gold);
+}
+
+.footer-social svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.footer-copyright {
+  font-family: var(--font-gothic);
+  font-size: 0.65rem;
+  font-weight: 300;
+  color: var(--fg-dim);
+  letter-spacing: 0.1em;
+}
+
+/* ========================================
+   Fixed CTA Button (追従ボタン)
+======================================== */
+.fixed-cta {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 900;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fixed-cta.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.fixed-cta-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  font-family: var(--font-mincho);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--fg);
+  background: rgba(12, 10, 15, 0.9);
+  border: 1px solid #c45c5c;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 20px rgba(196, 92, 92, 0.3);
+}
+
+.fixed-cta-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #c45c5c, #8b3a3a);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: -1;
+}
+
+.fixed-cta-btn:hover::before {
+  transform: scaleX(1);
+}
+
+.fixed-cta-btn:hover {
+  border-color: transparent;
+  box-shadow: 0 6px 30px rgba(196, 92, 92, 0.5);
+  transform: translateY(-2px);
+}
+
+.fixed-cta-btn::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border: 1px solid #c45c5c;
+  opacity: 0;
+  animation: cta-pulse 2.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.fixed-cta-icon {
+  font-size: 1.1rem;
+}
+
+@media (max-width: 640px) {
+  .fixed-cta {
+    bottom: 1rem;
+    right: 1rem;
+    left: 1rem;
+  }
+  
+  .fixed-cta-btn {
+    width: 100%;
+    padding: 1rem;
+  }
+}
+
+/* ========================================
+   Fixed Share & Calendar Buttons (左下追従)
+======================================== */
+.fixed-share {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fixed-share.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.share-btn,
+.calendar-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: rgba(12, 10, 15, 0.9);
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 20px rgba(184, 164, 114, 0.2);
+}
+
+.share-btn:hover,
+.calendar-btn:hover {
+  background: var(--gold);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 30px rgba(184, 164, 114, 0.4);
+}
+
+.share-btn:hover .share-icon,
+.calendar-btn:hover .calendar-icon {
+  stroke: var(--bg);
+}
+
+.share-icon,
+.calendar-icon {
+  width: 20px;
+  height: 20px;
+  stroke: var(--gold);
+  stroke-width: 1.5;
+  fill: none;
+  transition: stroke 0.3s ease;
+}
+
+@media (max-width: 640px) {
+  .fixed-share {
+    bottom: 5.5rem;
+    left: 1rem;
+  }
+  
+  .share-btn,
+  .calendar-btn {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .fixed-cta {
+    bottom: 1rem;
+  }
+}
+
+/* ========================================
+   Responsive
+======================================== */
+@media (min-width: 768px) {
+  .section {
+    padding: 6rem 2rem;
+  }
+  
+  .section-title {
+    font-size: 1.6rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding: 8rem 2rem;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+  <div class="header-inner">
+    <a href="#" class="header-logo">
+      <img src="img/logo-horizontal.png" alt="大響宴">
+    </a>
+    <nav class="header-nav" id="nav">
+      <a href="#live">Live Info</a>
+      <a href="#ticket">Ticket</a>
+      <a href="#goods">Goods</a>
+      <a href="#notice">Notice</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-gradient"></div>
+  <div class="mist mist-1"></div>
+  <div class="mist mist-2"></div>
+  <canvas id="petals"></canvas>
+  <div class="hero-bg" id="hero-bg">
+    <img src="img/kv-main.png" alt="大響宴 メインビジュアル">
+  </div>
+  <div class="hero-content">
+    <div class="hero-title-vertical">
+      <img src="img/logo-vertical.png" alt="大響宴">
+    </div>
+    <p class="hero-date-kanji">二〇二六年 五月二十三日 土曜日</p>
+    <p class="hero-venue">EX THEATER ROPPONGI</p>
+  </div>
+</section>
+
+<!-- About -->
+<section class="section about" id="about">
+  <div class="about-gradient"></div>
+  <div class="about-content animate-on-scroll">
+    <div class="typing-wrap">
+      <span class="typing-text" id="typing"></span>
+    </div>
+  </div>
+</section>
+
+<div class="wa-divider">
+  <div class="line"></div>
+  <div class="diamond"></div>
+  <div class="line"></div>
+</div>
+
+<!-- Live Info -->
+<section class="section live-info" id="live">
+  <div class="live-info-gradient"></div>
+  <div class="live-info-content">
+    <div class="section-header animate-on-scroll">
+      <span class="section-label">Live Info</span>
+      <h2 class="section-title">公演情報</h2>
+    </div>
+    
+    <div class="animate-on-scroll">
+      <p class="live-date-main">二〇二六年 五月二十三日（土）</p>
+      <p class="live-venue-name">EX THEATER ROPPONGI</p>
+    </div>
+    
+    <div class="live-shows animate-on-scroll">
+      <div class="live-show daytime">
+        <p class="live-show-label">Daytime — 第一部</p>
+        <h3 class="live-show-title">歌ってみた限定公演</h3>
+        <div class="live-show-time">
+          <p><span>開場</span>14:00</p>
+          <p><span>開演</span>15:00</p>
+        </div>
+        <span class="live-show-sold-out">SOLD OUT</span>
+        <a href="https://music.apple.com/jp/artist/araki/1089865975" target="_blank" rel="noopener noreferrer" class="listen-btn">楽曲を予習する</a>
+      </div>
+      <div class="live-show nighttime">
+        <p class="live-show-label">Nighttime — 第二部</p>
+        <h3 class="live-show-title">オリジナル曲限定公演</h3>
+        <div class="live-show-time">
+          <p><span>開場</span>18:00</p>
+          <p><span>開演</span>19:00</p>
+        </div>
+        <a href="https://www.tunecore.co.jp/artists/ARAKI-451" target="_blank" rel="noopener noreferrer" class="listen-btn">楽曲を予習する</a>
+      </div>
+    </div>
+
+    <div class="performers animate-on-scroll">
+      <p class="performers-title">Performers</p>
+      <div class="performers-list">
+        <div class="performer-item">
+          <span class="performer-role">Vocal</span>
+          <span class="performer-name">あらき</span>
+          <a href="https://x.com/axiz_and_nico" target="_blank" rel="noopener noreferrer" class="performer-x-link">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+        <div class="performer-item">
+          <span class="performer-role">Guitar</span>
+          <span class="performer-name">江畑コーヘー</span>
+          <a href="https://x.com/ebakohe" target="_blank" rel="noopener noreferrer" class="performer-x-link">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+        <div class="performer-item">
+          <span class="performer-role">Guitar</span>
+          <span class="performer-name">鳴風</span>
+          <a href="https://x.com/narukazedesu" target="_blank" rel="noopener noreferrer" class="performer-x-link">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+        <div class="performer-item">
+          <span class="performer-role">Bass</span>
+          <span class="performer-name">okamu.</span>
+          <a href="https://x.com/okamu_xix" target="_blank" rel="noopener noreferrer" class="performer-x-link">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+        <div class="performer-item">
+          <span class="performer-role">Drum</span>
+          <span class="performer-name">堀越一希</span>
+          <a href="https://x.com/horiko_shidrums" target="_blank" rel="noopener noreferrer" class="performer-x-link">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+        <div class="performer-item">
+          <span class="performer-role">Manipulator</span>
+          <span class="performer-name">大浦康平</span>
+          <a href="https://x.com/k_hey0281" target="_blank" rel="noopener noreferrer" class="performer-x-link">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wa-divider">
+  <div class="line"></div>
+  <div class="diamond"></div>
+  <div class="line"></div>
+</div>
+
+<!-- Ticket -->
+<section class="section ticket" id="ticket">
+  <div class="ticket-gradient"></div>
+  <div class="ticket-content">
+    <div class="section-header animate-on-scroll">
+      <span class="section-label">Ticket</span>
+      <h2 class="section-title">チケット情報</h2>
+    </div>
+    
+    <div class="ticket-types animate-on-scroll">
+      <div class="ticket-card featured sold-out">
+        <span class="ticket-card-badge">Through Ticket</span>
+        <h3 class="ticket-card-name">宴チケット（スタンディング）</h3>
+        <p class="ticket-card-price">¥12,000<small>（税込）</small></p>
+        <p class="ticket-card-details">
+          昼・夜通しチケット / 整理番号付<br>
+          来場者特典付 / 限定グッズ付
+        </p>
+      </div>
+      <div class="ticket-card featured sold-out">
+        <span class="ticket-card-badge">Through Ticket</span>
+        <h3 class="ticket-card-name">宴チケット（B1/B2指定席）</h3>
+        <p class="ticket-card-price">¥13,000<small>（税込）</small></p>
+        <p class="ticket-card-details">
+          昼・夜通しチケット / 指定席<br>
+          来場者特典付 / 限定グッズ付
+        </p>
+      </div>
+      <div class="ticket-card">
+        <h3 class="ticket-card-name">スタンディング</h3>
+        <p class="ticket-card-price">¥6,000<small>（税込）</small></p>
+        <p class="ticket-card-details">
+          整理番号付 / 来場者特典付
+        </p>
+      </div>
+      <div class="ticket-card">
+        <h3 class="ticket-card-name">B1/B2指定席</h3>
+        <p class="ticket-card-price">¥6,500<small>（税込）</small></p>
+        <p class="ticket-card-details">
+          指定席 / 来場者特典付
+        </p>
+      </div>
+    </div>
+
+    <div class="ticket-cta animate-on-scroll">
+      <p class="cta-heading">プレイガイド1次先行</p>
+      <p class="cta-heading-sub">4/4（土）10:00 〜 4/12（日）23:59</p>
+      <a href="https://l-tike.com/araki/" target="_blank" class="cta-btn ltike">
+        <svg class="cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 10h20"/><path d="M12 4v16"/></svg>
+        ローソンチケット
+      </a>
+      <a href="https://eplus.jp/araki0523/" target="_blank" class="cta-btn eplus">
+        <svg class="cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 10h20"/><path d="M12 4v16"/></svg>
+        イープラス
+      </a>
+      <a href="https://w.pia.jp/t/araki-daikyoen/" target="_blank" class="cta-btn pia">
+        <svg class="cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 10h20"/><path d="M12 4v16"/></svg>
+        チケットぴあ
+      </a>
+    </div>
+
+    <div class="ticket-issue-note animate-on-scroll">
+      <p>通しチケット：<strong>電子チケットのみ</strong></p>
+      <p>昼公演 / 夜公演 単体：<strong>電子チケット or 紙チケット</strong></p>
+      <p class="ticket-issue-sub">※ 電子チケットをご利用の場合、各プレイガイド専用アプリのインストールが必要です</p>
+    </div>
+    
+    <div class="wa-divider" style="padding: 2rem 0;">
+      <div class="line"></div>
+      <div class="diamond"></div>
+      <div class="line"></div>
+    </div>
+    
+    <div class="ticket-schedule animate-on-scroll">
+      <h3 class="ticket-schedule-title">SCHEDULE</h3>
+      <div class="schedule-timeline">
+        <div class="timeline-item ended">
+          <div class="timeline-content">
+            <p class="timeline-name">FC「あらき組」最速先行</p>
+            <p class="timeline-date">2/21（土）20:00 〜 3/1（日）23:59</p>
+          </div>
+        </div>
+        <div class="timeline-item ended">
+          <div class="timeline-content">
+            <p class="timeline-name">オフィシャル最速先行</p>
+            <p class="timeline-date">2/21（土）20:00 〜 3/1（日）23:59</p>
+          </div>
+        </div>
+        <div class="timeline-item ended">
+          <div class="timeline-content">
+            <p class="timeline-name">FC「あらき組」2次先行</p>
+            <p class="timeline-date">3/13（金）19:00 〜 3/22（日）23:59</p>
+          </div>
+        </div>
+        <div class="timeline-item ended">
+          <div class="timeline-content">
+            <p class="timeline-name">プレリクエスト抽選先行</p>
+            <p class="timeline-date">3/13（金）19:00 〜 3/22（日）23:59</p>
+          </div>
+        </div>
+        <div class="timeline-item now-active">
+          <div class="timeline-content">
+            <p class="timeline-name">プレイガイド1次先行</p>
+            <p class="timeline-date">4/4（土）10:00 〜 4/12（日）23:59</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <p class="timeline-name">一般発売</p>
+            <p class="timeline-date">4/25（土）10:00 〜</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wa-divider">
+  <div class="line"></div>
+  <div class="diamond"></div>
+  <div class="line"></div>
+</div>
+
+<!-- Goods -->
+<section class="section goods" id="goods">
+  <div class="goods-gradient"></div>
+  <div class="goods-content">
+    <div class="section-header animate-on-scroll">
+      <span class="section-label">Goods</span>
+      <h2 class="section-title">グッズ情報</h2>
+    </div>
+    
+    <div class="goods-benefits animate-on-scroll">
+      <div class="goods-benefit-item">
+        <p class="goods-benefit-label">For All Visitors</p>
+        <p class="goods-benefit-title">来場者特典</p>
+        <p class="goods-item-name">KV缶バッジ</p>
+        <p class="goods-benefit-desc">全来場者にお渡しします<br><small style="color: rgba(245,240,230,0.5);">※一部・二部で異なるデザイン</small></p>
+      </div>
+      <div class="goods-benefit-item featured">
+        <p class="goods-benefit-label">Through Ticket Bonus</p>
+        <p class="goods-benefit-title">限定グッズ</p>
+        <p class="goods-item-name">リップストップリュック</p>
+        <p class="goods-benefit-desc">一部・二部通し券「宴チケット」に付属</p>
+      </div>
+    </div>
+    
+    <p class="goods-note animate-on-scroll">ライブオフィシャルグッズ詳細は後日発表予定です。</p>
+  </div>
+</section>
+
+<div class="wa-divider">
+  <div class="line"></div>
+  <div class="diamond"></div>
+  <div class="line"></div>
+</div>
+
+<!-- Notice -->
+<section class="section notice" id="notice">
+  <div class="notice-gradient"></div>
+  <div class="notice-content">
+    <div class="section-header animate-on-scroll">
+      <span class="section-label">Notice</span>
+      <h2 class="section-title">注意事項</h2>
+    </div>
+    
+    <div class="notice-list animate-on-scroll">
+    <details class="notice-item">
+      <summary>チケットについて</summary>
+      <div class="notice-item-content">
+        <ul>
+          <li>本公演は【電子チケット／紙チケット】での取り扱いとなります。（通しチケットは電子チケットのみとなります。予めご了承ください。）</li>
+          <li>電子チケットをご利用のお客様は、ローソンチケットアプリのインストールが必要です。</li>
+          <li>チケットご購入後のキャンセル・変更・払戻はできません。</li>
+          <li>チケットお申込者様および同行者様は、ローソンチケットの会員登録が必要です。</li>
+          <li>チケット先行受付のお申込み・お支払い・お受取りに関するお問い合わせは<a href="https://l-tike.com/contact/" target="_blank" style="color: var(--gold); text-decoration: underline;">こちら</a></li>
+          <li>営利目的でのご購入および転売を禁止いたします。</li>
+          <li>車椅子でご来場の場合は、チケットご購入後、事前に各公演のお問い合わせ先までご連絡をお願いいたします。</li>
+          <li>未就学児童入場不可</li>
+          <li>入場時、ドリンク代が別途必要となります</li>
+          <li>先行販売で規定枚数に達し次第、受付を終了させていただきます。その場合、一般発売はございませんので予めご了承ください。</li>
+        </ul>
+      </div>
+    </details>
+    <details class="notice-item">
+      <summary>公演に関する注意事項</summary>
+      <div class="notice-item-content">
+        <ul>
+          <li>客席内では係員の指示に従ってください</li>
+          <li>周りのお客様のケガやトラブルの原因にもなりますので、安全な服装やお履物でお越しください。ヒールや厚底靴の着用は禁止です</li>
+          <li>鋭利なアクセサリー、長いチェーンやストラップは接触事故防止のため着用をお控えください</li>
+          <li>極端に大きな帽子や装飾は後方のお客様の視界を遮るためご遠慮ください</li>
+          <li>客席内での撮影/録音/録画行為は一切禁止とさせていただきます</li>
+        </ul>
+      </div>
+    </details>
+    <details class="notice-item">
+      <summary>フラワースタンドについて</summary>
+      <div class="notice-item-content">
+        <ul>
+          <li><strong>■サイズ規定</strong><br>フラワースタンドについては、底辺（スタンド足部分）が40cm×40cm以下、高さが180cm以下のものでお願いいたします。（上記以外のサイズのスタンド花については、会場スペースの都合上飾れない場合がございます。）</li>
+          <li><strong>＜到着指定＞</strong><br>注文時に必ず【2026年5月23日(土) 9時〜11時】をご指定の上、花屋または宅配業者にご依頼ください。</li>
+          <li><strong>＜回収指定＞</strong><br>注文時に必ず【2026年5月23日(土) 21時〜21時半】にスタンド花のお引き取りをしていただきますよう、スタンド花をご手配した花屋に回収をご依頼ください。</li>
+          <li><strong>＜スタンド花 送付先＞</strong><br>〒106-0031<br>東京都港区西麻布１丁目２−９<br>EX THEATER ROPPONGI 気付<br>TEL：03-6406-2222<br>あらき　大饗宴　　宛</li>
+          <li>※上記指定時間外にお届けの場合はお受取り致しかねます。</li>
+          <li>※スタンド花の設置場所についてはホール利用規定及び、消防法にのっとった形で主催側で判断させて頂いた上、順不同で設置させていただきます。設置場所や順番の指定は出来ませんので予めご了承ください。</li>
+          <li>※花束やアレンジメントに関してはロビーに飾ることはできません。予めご了承ください。</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="notice-item">
+      <summary>その他の注意事項</summary>
+      <div class="notice-item-content">
+        <ul>
+          <li>アーティストの入り待ち、出待ち行為は禁止となります</li>
+          <li>出演者へのプレゼントは受け取れません</li>
+          <li>お手紙は受け取り可能です。会場に設置する「お手紙回収BOX」にお入れください</li>
+          <li>以上のことを守っていただけない場合には、ご入場いただけない場合やご退場いただく場合がございます</li>
+        </ul>
+      </div>
+    </details>
+    </div>
+
+    <div class="torisetsu-link animate-on-scroll">
+      <a href="https://araki-live.jp/torisetsu_2026" class="glitch-text" data-text="ライブトリセツ 2026 ver.">ライブトリセツ 2026 ver.</a>
+    </div>
+  </div>
+</section>
+
+<div class="wa-divider">
+  <div class="line"></div>
+  <div class="diamond"></div>
+  <div class="line"></div>
+</div>
+
+<!-- Contact -->
+<section class="section contact" id="contact">
+  <div class="contact-gradient"></div>
+  <div class="contact-content">
+    <div class="section-header animate-on-scroll">
+      <span class="section-label">Contact</span>
+      <h2 class="section-title">お問い合わせ</h2>
+    </div>
+    
+    <div class="animate-on-scroll">
+      <div class="contact-item">
+        <p class="contact-label">公演に関するお問い合わせ</p>
+        <p class="contact-value">
+          HOT STUFF PROMOTION<br>
+          050-5211-6077
+        </p>
+      </div>
+      
+      <div class="contact-item">
+        <p class="contact-label">その他のお問い合わせ</p>
+        <a href="http://araki-live.jp/script/mailform/contact/" class="contact-btn">Contact Form</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Fixed CTA Button (追従) -->
+<div class="fixed-cta" id="fixed-cta">
+  <a href="#ticket" class="fixed-cta-btn">
+    <span class="fixed-cta-icon">🎫</span>
+    チケットを申し込む
+  </a>
+</div>
+
+<!-- Fixed Share Button (左下追従) -->
+<div class="fixed-share" id="fixed-share">
+  <button class="share-btn" id="share-btn" aria-label="このページをシェア">
+    <svg class="share-icon" viewBox="0 0 24 24">
+      <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+      <polyline points="16 6 12 2 8 6"/>
+      <line x1="12" y1="2" x2="12" y2="15"/>
+    </svg>
+  </button>
+  <button class="calendar-btn" id="calendar-btn" aria-label="カレンダーに登録">
+    <svg class="calendar-icon" viewBox="0 0 24 24">
+      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+      <line x1="16" y1="2" x2="16" y2="6"/>
+      <line x1="8" y1="2" x2="8" y2="6"/>
+      <line x1="3" y1="10" x2="21" y2="10"/>
+      <line x1="12" y1="14" x2="12" y2="18"/>
+      <line x1="10" y1="16" x2="14" y2="16"/>
+    </svg>
+  </button>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-social">
+    <a href="https://x.com/axiz_and_nico" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+      <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    </a>
+    <a href="https://www.youtube.com/c/AXIZchannel" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+      <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+    </a>
+    <a href="https://www.nicovideo.jp/user/15635857/series" target="_blank" rel="noopener noreferrer" aria-label="niconico">
+      <svg viewBox="0 0 24 24"><path d="M.4787 7.534v12.1279A2.0213 2.0213 0 0 0 2.5 21.6832h2.3888l1.323 2.0948a.4778.4778 0 0 0 .4043.2205.4778.4778 0 0 0 .441-.2205l1.323-2.0948h6.9828l1.323 2.0948a.4778.4778 0 0 0 .441.2205c.1838 0 .3308-.0735.4043-.2205l1.323-2.0948h2.6462a2.0213 2.0213 0 0 0 2.0213-2.0213V7.5339a2.0213 2.0213 0 0 0-2.0213-1.9845h-7.681l4.4468-4.4469L17.1637 0l-5.1452 5.1452L6.8 0 5.6973 1.1025l4.4102 4.4102H2.5367a2.0213 2.0213 0 0 0-2.058 2.058z"/></svg>
+    </a>
+  </div>
+  <p class="footer-logo">大響宴 2026</p>
+  <p class="footer-copyright">©︎ RFTP / あらき</p>
+</footer>
+
+<!-- Scripts -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  
+  // ========================================
+  // Scroll Animation (Intersection Observer)
+  // ========================================
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px 0px -50px 0px',
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.animate-on-scroll').forEach(function(el) {
+    observer.observe(el);
+  });
+
+  // ========================================
+  // KV Reveal Effect
+  // ========================================
+  setTimeout(function() {
+    document.getElementById('hero-bg').classList.add('revealed');
+  }, 3000);
+
+  // ========================================
+  // Fixed CTA Button (追従ボタン表示制御)
+  // ========================================
+  const fixedCta = document.getElementById('fixed-cta');
+  const fixedShare = document.getElementById('fixed-share');
+  const ticketSection = document.getElementById('ticket');
+  
+  function updateFixedButtons() {
+    const scrollY = window.scrollY;
+    const heroHeight = window.innerHeight;
+    const ticketTop = ticketSection.offsetTop;
+    const ticketBottom = ticketTop + ticketSection.offsetHeight;
+    
+    // ヒーローを過ぎたら表示
+    if (scrollY > heroHeight * 0.8) {
+      // シェアボタンは常に表示
+      fixedShare.classList.add('visible');
+      
+      // CTAはチケットセクション内では非表示
+      if (scrollY < ticketTop - 200 || scrollY > ticketBottom + 100) {
+        fixedCta.classList.add('visible');
+      } else {
+        fixedCta.classList.remove('visible');
+      }
+    } else {
+      fixedCta.classList.remove('visible');
+      fixedShare.classList.remove('visible');
+    }
+  }
+  
+  window.addEventListener('scroll', updateFixedButtons);
+  updateFixedButtons();
+
+  // ========================================
+  // Web Share API
+  // ========================================
+  const shareBtn = document.getElementById('share-btn');
+  
+  shareBtn.addEventListener('click', async function() {
+    const shareData = {
+      title: '大響宴 -DAIKYOEN-',
+      text: 'あらき主催ライブ「大響宴」2026年5月23日(土) EX THEATER ROPPONGIにて開催！\n#大響宴',
+      url: 'https://araki-live.jp/daikyoen/'
+    };
+    
+    if (navigator.share) {
+      try {
+        await navigator.share(shareData);
+      } catch (err) {
+        // ユーザーがキャンセルした場合など
+        console.log('Share cancelled or failed');
+      }
+    } else {
+      // Web Share API非対応の場合はURLをコピー
+      try {
+        await navigator.clipboard.writeText(shareData.url);
+        alert('URLをコピーしました');
+      } catch (err) {
+        // フォールバック
+        prompt('以下のURLをコピーしてください:', shareData.url);
+      }
+    }
+  });
+
+  // ========================================
+  // Calendar Registration
+  // ========================================
+  const calendarBtn = document.getElementById('calendar-btn');
+  
+  calendarBtn.addEventListener('click', function() {
+    // イベント情報
+    const event = {
+      title: '大響宴 -DAIKYOEN-',
+      location: 'EX THEATER ROPPONGI',
+      description: 'あらき主催ライブ「大響宴」\\n昼公演（歌ってみた）15:00開演 / 夜公演（オリジナル）19:00開演\\nhttps://araki-live.jp/daikyoen/',
+      startDate: '20260523T140000',
+      endDate: '20260523T210000'
+    };
+    
+    // Googleカレンダー用URL
+    const googleUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(event.title)}&dates=${event.startDate}/${event.endDate}&details=${encodeURIComponent(event.description)}&location=${encodeURIComponent(event.location)}`;
+    
+    // 選択肢を表示
+    const choice = confirm('Googleカレンダーに登録しますか？\\n\\nOK → Googleカレンダー\\nキャンセル → iCalファイルをダウンロード');
+    
+    if (choice) {
+      // Googleカレンダーを開く
+      window.open(googleUrl, '_blank');
+    } else {
+      // iCalファイルを生成してダウンロード
+      const icsContent = `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//大響宴//DAIKYOEN//JP
+BEGIN:VEVENT
+DTSTART:${event.startDate}
+DTEND:${event.endDate}
+SUMMARY:${event.title}
+LOCATION:${event.location}
+DESCRIPTION:あらき主催ライブ「大響宴」 昼公演（歌ってみた）15:00開演 / 夜公演（オリジナル）19:00開演 https://araki-live.jp/daikyoen/
+END:VEVENT
+END:VCALENDAR`;
+      
+      const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'daikyoen-2026.ics';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+  });
+
+  // ========================================
+  // Typing Effect (About Section)
+  // ========================================
+  const messages = [
+    '「歌ってみた」と「オリジナル曲」',
+    'どちらも俺の音楽だけど、あえて分けてみることにした。',
+    '昼は歌ってみた。夜はオリジナル曲。',
+    'どちらか一方だけでもいい。',
+    'でも、もし昼を楽しんでくれたなら、',
+    '夜の世界ものぞいてみてほしい。',
+    '二つの世界を。',
+  ];
+  const typingEl = document.getElementById('typing');
+  let messageIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+
+  function typeMessage() {
+    const currentMessage = messages[messageIndex];
+    
+    if (!isDeleting) {
+      typingEl.innerHTML = currentMessage.slice(0, charIndex) + '<span class="typing-cursor"></span>';
+      charIndex++;
+      
+      if (charIndex > currentMessage.length) {
+        isDeleting = true;
+        setTimeout(typeMessage, 2500);
+        return;
+      }
+      setTimeout(typeMessage, 80);
+    } else {
+      typingEl.innerHTML = currentMessage.slice(0, charIndex) + '<span class="typing-cursor"></span>';
+      charIndex--;
+      
+      if (charIndex < 0) {
+        isDeleting = false;
+        messageIndex = (messageIndex + 1) % messages.length;
+        charIndex = 0;
+        setTimeout(typeMessage, 500);
+        return;
+      }
+      setTimeout(typeMessage, 40);
+    }
+  }
+  
+  // Start typing when the about section scrolls into view
+  const typingObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        setTimeout(typeMessage, 500);
+        typingObserver.disconnect();
+      }
+    });
+  }, { threshold: 0.3 });
+  typingObserver.observe(document.querySelector('.typing-wrap'));
+
+  // ========================================
+  // Sakura Petals (Canvas)
+  // ========================================
+  const canvas = document.getElementById('petals');
+  const ctx = canvas.getContext('2d');
+  let petals = [];
+  const PETAL_COUNT = 30;
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+
+  class Petal {
+    constructor() {
+      this.reset(true);
+    }
+    
+    reset(init) {
+      this.x = Math.random() * canvas.width;
+      this.y = init ? Math.random() * canvas.height : -20;
+      this.size = Math.random() * 10 + 5;
+      this.speedY = Math.random() * 0.4 + 0.15;
+      this.speedX = Math.random() * 0.3 - 0.15;
+      this.rotation = Math.random() * Math.PI * 2;
+      this.rotSpeed = (Math.random() - 0.5) * 0.015;
+      this.wobble = Math.random() * Math.PI * 2;
+      this.wobbleSpeed = Math.random() * 0.008 + 0.003;
+      this.alpha = Math.random() * 0.3 + 0.1;
+      
+      const hue = Math.random() > 0.3 ? 0 : 30;
+      const sat = 30 + Math.random() * 20;
+      const light = 70 + Math.random() * 15;
+      this.color = `hsla(${hue}, ${sat}%, ${light}%, ${this.alpha})`;
+    }
+    
+    update() {
+      this.wobble += this.wobbleSpeed;
+      this.x += this.speedX + Math.sin(this.wobble) * 0.3;
+      this.y += this.speedY;
+      this.rotation += this.rotSpeed;
+      if (this.y > canvas.height + 20) this.reset(false);
+    }
+    
+    draw() {
+      ctx.save();
+      ctx.translate(this.x, this.y);
+      ctx.rotate(this.rotation);
+      ctx.fillStyle = this.color;
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      ctx.bezierCurveTo(
+        this.size * 0.3, -this.size * 0.5,
+        this.size, -this.size * 0.3,
+        this.size * 0.5, this.size * 0.2
+      );
+      ctx.bezierCurveTo(
+        this.size * 0.2, this.size * 0.5,
+        -this.size * 0.2, this.size * 0.3,
+        0, 0
+      );
+      ctx.fill();
+      ctx.restore();
+    }
+  }
+
+  for (let i = 0; i < PETAL_COUNT; i++) {
+    petals.push(new Petal());
+  }
+
+  function animatePetals() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    petals.forEach(p => {
+      p.update();
+      p.draw();
+    });
+    requestAnimationFrame(animatePetals);
+  }
+  animatePetals();
+
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+# ===== SECRETS - 絶対コミット禁止 =====
+.htaccess
+.htpasswd
+*.pem
+*.key
+.env
+.env.*
+
+# ===== Claude/エディタ設定 =====
+.claude/
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ===== OS =====
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===== Logs =====
+*.log
+
+# ===== アーカイブ（元素材・参考資料 - 重いので除外） =====
+_archive/
+
+# ===== 別サブページ（LP本体ではないので除外） =====
+goods_announce/
+
+# ===== 一時ファイル =====
+*.tmp
+*.bak

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="theme-color" content="#0a0a0e">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>ライブトリセツ 2026 ver.</title>
+
+    <!-- OGP -->
+    <meta property="og:title" content="ライブトリセツ 2026">
+    <meta property="og:description" content="あらきのライブガイド。初めての方も安心して楽しめるよう、ルールやマナーをわかりやすく解説しています。">
+    <meta property="og:image" content="https://araki-live.jp/torisetsu_daikyoen/images/ogp.png">
+    <meta property="og:url" content="https://araki-live.jp/torisetsu_daikyoen/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ライブトリセツ 2026">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ライブトリセツ 2026">
+    <meta name="twitter:description" content="あらきのライブガイド。初めての方も安心して楽しめるよう、ルールやマナーをわかりやすく解説しています。">
+    <meta name="twitter:image" content="https://araki-live.jp/torisetsu_daikyoen/images/ogp.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Noto+Serif+JP:wght@500;700;900&family=Zen+Kaku+Gothic+New:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Aurora background -->
+    <div class="aurora-bg" aria-hidden="true">
+        <div class="aurora-layer aurora-1"></div>
+        <div class="aurora-layer aurora-2"></div>
+        <div class="aurora-layer aurora-3"></div>
+    </div>
+
+    <!-- Scroll progress -->
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <!-- Header -->
+    <header class="site-header" id="site-header">
+        <div class="header-inner">
+            <div class="header-brand">
+                <span class="header-logo">ARAKI</span>
+                <span class="header-divider"></span>
+                <span class="header-subtitle">ライブトリセツ</span>
+            </div>
+            <div class="header-search" id="header-search">
+                <svg class="search-icon-inline" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                </svg>
+                <input type="search" class="search-input" id="search-input" placeholder="検索..." autocomplete="off">
+            </div>
+        </div>
+    </header>
+
+    <!-- Tab bar -->
+    <nav class="tab-bar" id="tab-bar">
+        <div class="tab-bar-inner">
+            <div class="tab-indicator" id="tab-indicator"></div>
+            <button class="tab-btn active" data-tab="principles" type="button">
+                <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <span>三大原則</span>
+            </button>
+            <button class="tab-btn" data-tab="basic" type="button">
+                <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                <span>基本編</span>
+            </button>
+            <button class="tab-btn" data-tab="fashion" type="button">
+                <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46 16 2 12 6.5 8 2 3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>
+                <span>服装</span>
+            </button>
+            <button class="tab-btn" data-tab="enjoy" type="button">
+                <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                <span>楽しみ方</span>
+            </button>
+            <button class="tab-btn" data-tab="goods" type="button">
+                <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                <span>物販</span>
+            </button>
+            <button class="tab-btn" data-tab="health" type="button">
+                <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                <span>体調</span>
+            </button>
+            <button class="tab-btn" data-tab="other" type="button">
+                <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+                <span>その他</span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="main">
+        <!-- Hero -->
+        <section class="hero">
+            <h1 class="hero-title">
+                <img src="images/torisetsu.png" alt="ライブトリセツ" class="hero-logo">
+            </h1>
+            <div class="marquee-wrapper">
+                <div class="marquee-track">
+                    <span class="marquee-text">初めてのライブというものは、知らないラーメン屋に独りで入る時の高揚感と恐怖が入り混じった感情に酷似している。</span>
+                    <span class="marquee-text" aria-hidden="true">初めてのライブというものは、知らないラーメン屋に独りで入る時の高揚感と恐怖が入り混じった感情に酷似している。</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 三大原則 -->
+        <section id="principles" class="tab-panel active">
+            <h2 class="section-heading">三大原則</h2>
+            <div class="principles-grid">
+                <article class="principle-card">
+                    <div class="principle-num">01</div>
+                    <h3 class="principle-title">ルールより協力</h3>
+                    <p class="principle-body">ここに記載のルール・マナーはあくまで基準。はみ出しているからどうということではない。自警団が出来ることを推奨してるわけではないので協力しあってライブを作っていこう。<span class="accent-text">ライブは楽しいもの。</span></p>
+                </article>
+                <article class="principle-card">
+                    <div class="principle-num">02</div>
+                    <h3 class="principle-title">オシャレと配慮</h3>
+                    <p class="principle-body">服装や髪、靴などオシャレをして推しに会いに行きたいという心理は当然だろう。しかし、後ろの人の視界を遮る髪型・帽子や、周囲に迷惑をかけるようなオシャレはライブに必要のないオシャレだ。周りに配慮して楽しもう。<span class="accent-text">ライブは楽しいもの。</span></p>
+                </article>
+                <article class="principle-card">
+                    <div class="principle-num">03</div>
+                    <h3 class="principle-title">みんなで作るライブ</h3>
+                    <p class="principle-body">元も子もないが、本来ライブにルールなんてないし必要ないと思っている。各々が思い思いに楽しめばいい。じゃあなんでルールや規約が存在するのか？誰かの行動により、他の誰かが不利益や損を被るからだ。ライブは家で独りで映画とか見てるのとは違います。周囲360度に他の人が存在し、他の人の人生、世界が混在してます。周りに配慮して楽しもう。<span class="accent-text">ライブは楽しいもの。</span></p>
+                </article>
+            </div>
+        </section>
+
+        <!-- ライブ基本編 -->
+        <section id="basic" class="tab-panel">
+            <h2 class="section-heading">ライブ基本編</h2>
+            <div class="accordion-list">
+                <details class="accordion">
+                    <summary class="accordion-q"><span>Q：整理番号って何？</span></summary>
+                    <div class="accordion-a">
+                        <p>A：入場する順番を示す番号です。開場時間の前になると整列が始まるので、自分の番号のところに並んで待ちましょう。会場内に入ったら好きな場所に立ってOKです。例えば整理番号1番の人は最前だろうが右左端っこだろうが最後列だろうと、どこに立っても構いません。わからないことがあったらスタッフに声をかけてください。</p>
+                    </div>
+                </details>
+                <details class="accordion">
+                    <summary class="accordion-q"><span>Q：ライブの流れを知りたいです！</span></summary>
+                    <div class="accordion-a">
+                        <p>A：入場時間に会場へ行く→スタッフの案内に従い並んで待つ→チケット見せる→会場のどこかに立つ→ライブ見る→楽しい→帰る→余韻。</p>
+                    </div>
+                </details>
+                <details class="accordion">
+                    <summary class="accordion-q"><span>Q：開場のどのくらい前に行った方がいいですか？</span></summary>
+                    <div class="accordion-a">
+                        <p>A：前提として会場の外にたむろすることはルール・規約・マナー全てに違反する行為。歩行者や車両の邪魔になるから。会場付近ではスタッフの案内に従って。開場時間15分前くらいには到着しているとスムーズです。</p>
+                    </div>
+                </details>
+                <details class="accordion">
+                    <summary class="accordion-q"><span>Q：公演後の退場にかかる時間は？規制退場とかありますか？</span></summary>
+                    <div class="accordion-a">
+                        <p>A：会場によるためなんとも言えないが割と時間かかるため余裕を持った時間設定をお願いしたい。規制退場は基本的にはないが、来場者の安全を考え急遽規制退場を行う場合もある。</p>
+                    </div>
+                </details>
+                <details class="accordion">
+                    <summary class="accordion-q"><span>Q：とりあえず必要なものは？</span></summary>
+                    <div class="accordion-a">
+                        <p>A：スマホとドリンク代（600円前後）。究極これだけあればよい。あとはその人のスタイル次第。</p>
+                    </div>
+                </details>
+                <details class="accordion">
+                    <summary class="accordion-q"><span>Q：荷物はどうすればいい？</span></summary>
+                    <div class="accordion-a">
+                        <p>A：スマホとドリンク代が基本。水分補給やモバイルバッテリー等は適宜。タオルはグッズでも買える。両手が空くカバンが便利。ロッカーが埋まっていることもあるため荷物は最小限で。周辺施設のロッカー利用も検討を。</p>
+                    </div>
+                </details>
+                <details class="accordion">
+                    <summary class="accordion-q"><span>Q：会場内撮影は禁止？</span></summary>
+                    <div class="accordion-a">
+                        <p>A：客席内は禁止。演出や世界観を大事にしているため。許可タイミングがあればMC中に案内。会場の外観やロビー等はOK。</p>
+                    </div>
+                </details>
+                <details class="accordion">
+                    <summary class="accordion-q"><span>Q：手紙はどう書けばいい？</span></summary>
+                    <div class="accordion-a">
+                        <p>A：正解はない。日頃の愚痴や近況報告、曲から知った経緯など自由に書いて。あなたの色を出すと良い。</p>
+                    </div>
+                </details>
+                <details class="accordion">
+                    <summary class="accordion-q"><span>Q：フラスタを贈りたい</span></summary>
+                    <div class="accordion-a">
+                        <p>A：基本的には可能。会場によってはスペース等の問題で難しい場合もあるため問い合わせ先に連絡を。</p>
+                    </div>
+                </details>
+                <details class="accordion">
+                    <summary class="accordion-q"><span>Q：お手紙BOXの場所は？</span></summary>
+                    <div class="accordion-a">
+                        <p>A：会場によって違うため、わからなかったらスタッフに聞いて。見えるところにあることが多い。</p>
+                    </div>
+                </details>
+                <details class="accordion">
+                    <summary class="accordion-q"><span>Q：車椅子で来場予定なのですが</span></summary>
+                    <div class="accordion-a">
+                        <p>A：車椅子でご来場予定のお客様は、公演日までにお問い合わせ先にご連絡ください。スタッフが対応いたします。</p>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <!-- 服装・持ち物編 -->
+        <section id="fashion" class="tab-panel">
+            <h2 class="section-heading">服装・持ち物編</h2>
+            <div class="accordion-list">
+                <details class="accordion">
+                    <summary class="accordion-q"><span>Q：会場で売ってるライブTシャツは必須？</span></summary>
+                    <div class="accordion-a">
+                        <p>A：着ると会場の一体感があって楽しい。でも服装に決まりはなく、自由にどうぞ。</p>
+                    </div>
+                </details>
+                <details class="accordion">
+                    <summary class="accordion-q"><span>Q：靴や服装は？</span></summary>
+                    <div class="accordion-a">
+                        <p>A：汗をかいてもいい服装、安定感のある靴推奨。</p>
+                        <p><strong>【靴について】</strong><br>
+                        ※ヒール、厚底のある靴につきましては、周囲のお客さまの怪我の原因やご迷惑にもなり大変危険ですので禁止とさせていただきます。<br>
+                        ※厚底のソールは5cmまで、を基準とさせていただきます。</p>
+                        <p><strong>【服装について】</strong><br>
+                        極端に大きな帽子や装飾は後方の視界を遮るためご遠慮ください。</p>
+                    </div>
+                </details>
+                <details class="accordion">
+                    <summary class="accordion-q"><span>Q：髪型に制限はありますか？</span></summary>
+                    <div class="accordion-a">
+                        <p>A：基本的に自由ですが、後方のお客様の視界を遮るような盛り髪やヘアアクセサリーはご遠慮ください。推しに会いに行くためのオシャレは素敵ですが、周囲への配慮もお願いします。</p>
+                        <p>また、ヘッドバンキングのような頭を振る動作の際に、後ろで髪を結うと鞭のようになって危ないという声をよく聞きます。ただし、結っていなくても当たれば痛く、周りのご迷惑となります。髪型がどうということではなく、周りへの配慮をしつつ楽しんでください。</p>
+                    </div>
+                </details>
+                <details class="accordion">
+                    <summary class="accordion-q"><span>Q：ロリータ服（パニエ）で参戦してもいい？</span></summary>
+                    <div class="accordion-a">
+                        <p>A：自由だが、周囲に迷惑になる形状ならやめるべき。</p>
+                    </div>
+                </details>
+                <details class="accordion">
+                    <summary class="accordion-q"><span>Q：うちわやボードは持ち込める？</span></summary>
+                    <div class="accordion-a">
+                        <p>A：うちわやボード類の持ち込みは、後方の視界を遮るため禁止とさせていただきます。応援の気持ちは、ペンライトや声援で表現してください。</p>
+                        <p>※演出の妨げまたは周囲のお客様へのご迷惑になると係員が判断した場合は、その他の応援グッズについてもご使用をお断りする可能性がございます。</p>
+                    </div>
+                </details>
+                <details class="accordion">
+                    <summary class="accordion-q"><span>Q：雨の日の傘は？</span></summary>
+                    <div class="accordion-a">
+                        <p>A：折り畳み傘推奨。会場外の傘立て場所に置くことになるため最悪無くなってもいいビニール傘も検討。</p>
+                    </div>
+                </details>
+                <details class="accordion">
+                    <summary class="accordion-q"><span>Q：ペンライト・サイリウムは何本まで？マナーは？</span></summary>
+                    <div class="accordion-a">
+                        <p>A：サイリウム/リングライト等の光り物は、合計2点までとさせていただきます。</p>
+                        <p>例）サイリウム1本＋リングライト1個（合計2点）</p>
+                        <p><strong>【使用に関する注意事項】</strong></p>
+                        <p>持ち方によって高さ制限が異なります：</p>
+                        <p><strong>■手に持つタイプ（ペンライト・サイリウム等）</strong><br>
+                        → 肩の高さまで<br>
+                        ・高輝度タイプの改造ペンライトや、光が強く明るすぎるものはご遠慮ください<br>
+                        ・長さが30cm以上のものは持ち込み禁止<br>
+                        ・極端に明るい光や点滅が激しいものは演出の都合上ご遠慮ください</p>
+                        <p><strong>■拳に装着するタイプ（リングライト・LEDアクリルバングル等）</strong><br>
+                        → 拳と同じ扱いなので高く掲げてOK<br>
+                        ・ただし過度に振り回すなど、周囲の迷惑になる使い方はお控えください</p>
+                        <p>※演出の妨げまたは周囲のお客様へのご迷惑になると係員が判断した場合は、ご使用をお断りする可能性がございます。</p>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <!-- 楽しみ方編 -->
+        <section id="enjoy" class="tab-panel">
+            <h2 class="section-heading">楽しみ方編</h2>
+            <div class="accordion-list">
+                <details class="accordion">
+                    <summary class="accordion-q"><span>Q：ヘドバンやジャンプはしなきゃだめ？</span></summary>
+                    <div class="accordion-a">
+                        <p>A：強制ではない。ヘドバンは絶叫マシン的な楽しみ方で、フィーリングでOK。ジャンプは会場によって禁止の場合があるため、曲中の合図を確認。周りの人の安全にも配慮しながら楽しもう。</p>
+                    </div>
+                </details>
+                <details class="accordion">
+                    <summary class="accordion-q"><span>Q：コールはどうすればいい？</span></summary>
+                    <div class="accordion-a">
+                        <p>A：コールは曲の盛り上がりポイントで入れる掛け声。初めてなら周りに合わせるか、事前に動画などで予習するとよい。無理にする必要はない。</p>
+                    </div>
+                </details>
+                <details class="accordion">
+                    <summary class="accordion-q"><span>Q：ペンライトの色は何がいい？</span></summary>
+                    <div class="accordion-a">
+                        <p>A：あらきのイメージカラーは<strong>赤</strong>です。赤に合わせて点灯させるのも良いですが、好きな色で応援するのも自由です。それぞれの楽しみ方を尊重しましょう。</p>
+                    </div>
+                </details>
+                <details class="accordion">
+                    <summary class="accordion-q"><span>Q：推しへの気持ちの伝え方は？</span></summary>
+                    <div class="accordion-a">
+                        <p>A：手紙、SNS、ライブでの声援など様々。一番は「また会いに来る」こと。俺が生きてるうちにね</p>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <!-- 物販・お見送り会編 -->
+        <section id="goods" class="tab-panel">
+            <h2 class="section-heading">物販・お見送り会編</h2>
+            <div class="accordion-list">
+                <details class="accordion">
+                    <summary class="accordion-q"><span>Q：グッズはいつどこで買えますか？</span></summary>
+                    <div class="accordion-a">
+                        <p>A：詳細は後日、特設サイトおよびX等でアナウンスします。</p>
+                    </div>
+                </details>
+                <details class="accordion">
+                    <summary class="accordion-q"><span>Q：グッズの購入制限はありますか？</span></summary>
+                    <div class="accordion-a">
+                        <p>A：詳細は後日発表となります。商品ごとの購入制限が設けられる場合があります。</p>
+                    </div>
+                </details>
+                <details class="accordion">
+                    <summary class="accordion-q"><span>Q：お見送り会って何？</span></summary>
+                    <div class="accordion-a">
+                        <p class="placeholder-note">※お見送り会の詳細は後日発表予定です。決まり次第、こちらのページを更新します。</p>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <!-- 体調・健康編 -->
+        <section id="health" class="tab-panel">
+            <h2 class="section-heading">体調・健康編</h2>
+            <div class="accordion-list">
+                <details class="accordion">
+                    <summary class="accordion-q"><span>Q：ライブ中に体調が悪くなったら？</span></summary>
+                    <div class="accordion-a">
+                        <p>A：無理せず近くのスタッフに声をかけて。周りの人に「スタッフ呼んでください」と伝えるのもOK。我慢せず、早めに対処することが大切。</p>
+                    </div>
+                </details>
+                <details class="accordion">
+                    <summary class="accordion-q"><span>Q：水分補給はどうすればいい？</span></summary>
+                    <div class="accordion-a">
+                        <p>A：入場時に買うドリンクなどで適宜水分補給を。MCや曲間に飲むとよい。会場内は熱気で暑くなるため、こまめな水分補給をおすすめします。</p>
+                    </div>
+                </details>
+                <details class="accordion">
+                    <summary class="accordion-q"><span>Q：ライブ前日の過ごし方は？</span></summary>
+                    <div class="accordion-a">
+                        <p>A：十分な睡眠と食事・水分補給を心がけて。体調を整えておくことが大事。あとはライブ映像など見てテンション上げておく。</p>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <!-- その他・最後に -->
+        <section id="other" class="tab-panel">
+            <h2 class="section-heading">その他</h2>
+            <div class="accordion-list">
+                <details class="accordion">
+                    <summary class="accordion-q"><span>Q：ライブ後の余韻の過ごし方は？</span></summary>
+                    <div class="accordion-a">
+                        <p>A：人それぞれ。SNSで感想をシェアしたり、友達と話したり、一人で余韻に浸ったり。あらきさんに感想を送りつけると生きるモチベーションが増えます。次のライブのチケットを取るのもおすすめ。</p>
+                    </div>
+                </details>
+                <details class="accordion">
+                    <summary class="accordion-q"><span>Q：初めてでも楽しめる？</span></summary>
+                    <div class="accordion-a">
+                        <p>A：もちろん！初めてだからこそ感じる感動がある。わからないことはスタッフや周りの人に聞いてみて。みんな最初は初心者だった。</p>
+                    </div>
+                </details>
+                <details class="accordion">
+                    <summary class="accordion-q"><span>Q：一人での参加でも大丈夫？</span></summary>
+                    <div class="accordion-a">
+                        <p>A：全く問題ありません。一人で来ている方もたくさんいます。ライブは音楽を楽しむ場所。一人でも、仲間と一緒でも、それぞれの楽しみ方があります。</p>
+                    </div>
+                </details>
+            </div>
+
+            <!-- 最後に -->
+            <div class="conclusion-block">
+                <h2 class="section-heading">最後に</h2>
+                <p class="conclusion-text">ライブは本来自由なもの。<br>周囲への配慮だけ忘れず、思い切り楽しんで！</p>
+                <div class="conclusion-actions">
+                    <a href="https://araki-live.jp/" class="btn-return" style="display:none">
+                        <span class="btn-return-arrow">&larr;</span>
+                        特設サイトへ戻る
+                    </a>
+                    <a href="https://twitter.com/intent/tweet?text=%E3%83%A9%E3%82%A4%E3%83%96%E3%83%88%E3%83%AA%E3%82%BB%E3%83%84%202026%20ver.%0A%E3%81%82%E3%82%89%E3%81%8D%E3%81%AE%E3%83%A9%E3%82%A4%E3%83%96%E3%82%AC%E3%82%A4%E3%83%89%F0%9F%8E%A4&url=https%3A%2F%2Faraki-live.jp%2Ftorisetsu_2026%2F" class="btn-x-post" target="_blank" rel="noopener noreferrer">
+                        <svg class="x-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        Xでポストする
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; RFTP / あらき</p>
+    </footer>
+
+    <!-- Toast notification -->
+    <div class="toast" id="toast" aria-live="polite"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="script.js" defer></script>
+</body>
+</html>

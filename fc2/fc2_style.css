@@ -1,0 +1,461 @@
+/* ===== 大響宴 FC二次先行記事 - 和風テーマ ===== */
+/* CSSカスタムプロパティ（変数） */
+.dky-wrap {
+  --bg: #0c0a0f;
+  --bg-card: rgba(20, 17, 28, 0.85);
+  --fg: #e8e2d6;
+  --fg-dim: #a89e8c;
+  --accent: #c4956a;
+  --sakura: #d4a0a0;
+  --gold: #b8a472;
+  --indigo: #2d2845;
+  --warm: #e07b39;
+}
+/* メインラッパー */
+.dky-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 10px;
+  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', 'MS PMincho', serif;
+  color: #e8e2d6;
+  line-height: 1.8;
+}
+/* ===== ヘッダー ===== */
+.dky-header {
+  text-align: center;
+  padding: 45px 20px;
+  margin-bottom: 40px;
+  background: linear-gradient(
+    135deg,
+    #2d2845 0%,
+    #0c0a0f 25%,
+    #1a1528 50%,
+    #0c0a0f 75%,
+    #2d2845 100%
+  );
+  background-size: 400% 400%;
+  animation: dky-bg-shift 12s ease-in-out infinite;
+  border-radius: 12px;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(196, 149, 106, 0.2);
+  border: 1px solid rgba(196, 149, 106, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+@keyframes dky-bg-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+.dky-header::before,
+.dky-header::after {
+  content: '';
+  display: block;
+  width: 60%;
+  height: 1px;
+  margin: 0 auto;
+  background: linear-gradient(90deg, transparent, #c4956a, #b8a472, #c4956a, transparent);
+}
+.dky-header::before {
+  margin-bottom: 20px;
+}
+.dky-header::after {
+  margin-top: 20px;
+}
+.dky-header h1 {
+  font-size: 30px;
+  color: #b8a472;
+  margin: 0 0 8px 0;
+  letter-spacing: 6px;
+  text-shadow: 0 0 20px rgba(184, 164, 114, 0.3);
+  font-weight: 600;
+}
+.dky-header h2 {
+  font-size: 22px;
+  color: #c4956a;
+  margin: 5px 0;
+  letter-spacing: 3px;
+  text-shadow: 0 0 15px rgba(196, 149, 106, 0.2);
+  font-weight: 400;
+}
+/* ===== セクションカード共通 ===== */
+.dky-section {
+  margin-bottom: 30px;
+  background-color: rgba(20, 17, 28, 0.85);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(196, 149, 106, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.dky-section-header {
+  background: linear-gradient(135deg, #2d2845 0%, #1a1528 100%);
+  color: #e8e2d6;
+  padding: 14px 20px;
+  text-align: center;
+  border-bottom: 1px solid rgba(196, 149, 106, 0.2);
+  letter-spacing: 2px;
+}
+.dky-section-header strong {
+  font-size: 17px;
+  color: #c4956a;
+}
+.dky-section-body {
+  padding: 20px;
+}
+/* ===== テーブル ===== */
+.dky-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 15px;
+}
+.dky-table th {
+  padding: 12px 8px;
+  border: 1px solid rgba(196, 149, 106, 0.2);
+  text-align: center;
+  font-size: 0.9em;
+  background: linear-gradient(135deg, #2d2845, #1a1528);
+  color: #c4956a;
+  letter-spacing: 1px;
+}
+.dky-table td {
+  padding: 12px 8px;
+  border: 1px solid rgba(196, 149, 106, 0.1);
+  color: #e8e2d6;
+}
+.dky-table tr:nth-child(odd) td {
+  background-color: rgba(45, 40, 69, 0.3);
+}
+.dky-table tr:nth-child(even) td {
+  background-color: rgba(20, 17, 28, 0.5);
+}
+/* ===== 情報テーブル（ラベル：値） ===== */
+.dky-info-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 15px;
+}
+.dky-info-table td {
+  padding: 8px 0;
+  color: #e8e2d6;
+  vertical-align: top;
+}
+.dky-info-label {
+  color: #c4956a;
+  font-weight: bold;
+  white-space: nowrap;
+  width: 160px;
+  letter-spacing: 1px;
+}
+/* ===== 注意事項ボックス ===== */
+.dky-note {
+  background-color: rgba(45, 40, 69, 0.3);
+  border-radius: 8px;
+  padding: 15px 15px 15px 18px;
+  margin-top: 15px;
+  border-left: 3px solid #c4956a;
+}
+.dky-note p {
+  color: #a89e8c;
+  margin-bottom: 6px;
+  font-size: 0.88em;
+  line-height: 1.6;
+}
+.dky-note p:last-child {
+  margin-bottom: 0;
+}
+/* ===== CTAボタン ===== */
+.dky-cta-area {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+.dky-cta-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #c4956a 0%, #b8a472 50%, #c4956a 100%);
+  background-size: 200% 200%;
+  color: #0c0a0f !important;
+  padding: 18px 50px;
+  border-radius: 50px;
+  font-weight: bold;
+  text-decoration: none !important;
+  box-shadow:
+    0 4px 15px rgba(196, 149, 106, 0.3),
+    0 0 30px rgba(196, 149, 106, 0.1);
+  font-size: 15px;
+  letter-spacing: 2px;
+  transition: all 0.4s ease;
+  border: 1px solid rgba(184, 164, 114, 0.4);
+  cursor: pointer;
+  line-height: 1.6;
+  position: relative;
+  overflow: hidden;
+}
+.dky-cta-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.25),
+    transparent
+  );
+  animation: dky-shimmer 3s ease-in-out infinite;
+}
+@keyframes dky-shimmer {
+  0% { left: -100%; }
+  50%, 100% { left: 150%; }
+}
+.dky-cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 8px 25px rgba(196, 149, 106, 0.5),
+    0 0 40px rgba(196, 149, 106, 0.2);
+  background-position: 100% 0;
+}
+.dky-cta-submit {
+  display: inline-block;
+  background: linear-gradient(135deg, #c4956a 0%, #b8a472 50%, #c4956a 100%);
+  background-size: 200% 200%;
+  color: #0c0a0f;
+  padding: 18px 50px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 15px;
+  letter-spacing: 2px;
+  transition: all 0.4s ease;
+  border: 1px solid rgba(184, 164, 114, 0.4);
+  cursor: pointer;
+  line-height: 1.6;
+  box-shadow:
+    0 4px 15px rgba(196, 149, 106, 0.3),
+    0 0 30px rgba(196, 149, 106, 0.1);
+  text-shadow: none;
+  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  position: relative;
+  overflow: hidden;
+}
+.dky-cta-submit::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.25),
+    transparent
+  );
+  animation: dky-shimmer 3s ease-in-out infinite;
+}
+.dky-cta-submit:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 8px 25px rgba(196, 149, 106, 0.5),
+    0 0 40px rgba(196, 149, 106, 0.2);
+  background-position: 100% 0;
+}
+/* ===== 区切り線 ===== */
+.dky-divider {
+  text-align: center;
+  margin: 35px 0;
+  color: #c4956a;
+  font-size: 14px;
+  letter-spacing: 8px;
+  opacity: 0.6;
+}
+/* ===== フッター ===== */
+.dky-footer {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding: 30px;
+  background: linear-gradient(135deg, rgba(45, 40, 69, 0.5) 0%, rgba(20, 17, 28, 0.8) 100%);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(196, 149, 106, 0.15);
+}
+.dky-footer h3 {
+  color: #c4956a;
+  font-size: 20px;
+  margin-bottom: 20px;
+  letter-spacing: 3px;
+  font-weight: 400;
+}
+/* ===== チケット種別カード ===== */
+.dky-ticket-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
+.dky-ticket-card {
+  background: linear-gradient(145deg, rgba(45, 40, 69, 0.5), rgba(20, 17, 28, 0.7));
+  border: 1px solid rgba(196, 149, 106, 0.2);
+  border-radius: 10px;
+  padding: 18px;
+  text-align: center;
+  transition: all 0.4s ease;
+}
+.dky-ticket-card:hover {
+  border-color: rgba(196, 149, 106, 0.6);
+  box-shadow:
+    0 0 25px rgba(196, 149, 106, 0.2),
+    inset 0 0 15px rgba(196, 149, 106, 0.05);
+  transform: translateY(-4px);
+}
+.dky-ticket-card.featured {
+  border-color: rgba(196, 149, 106, 0.4);
+  box-shadow: 0 0 15px rgba(196, 149, 106, 0.15);
+  position: relative;
+}
+.dky-ticket-card.featured:hover {
+  border-color: rgba(196, 149, 106, 0.7);
+  box-shadow:
+    0 0 30px rgba(196, 149, 106, 0.3),
+    inset 0 0 20px rgba(196, 149, 106, 0.08);
+  transform: translateY(-4px);
+}
+.dky-ticket-name {
+  color: #c4956a;
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+.dky-ticket-price {
+  color: #e8e2d6;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+.dky-ticket-price small {
+  font-size: 13px;
+  color: #a89e8c;
+  font-weight: normal;
+}
+.dky-ticket-desc {
+  color: #a89e8c;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.dky-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #c4956a, #b8a472);
+  color: #0c0a0f;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 3px 12px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+.dky-live-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #c4956a, #e07b39);
+  color: #0c0a0f;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 16px;
+  border-radius: 20px;
+  letter-spacing: 1px;
+  animation: dky-pulse 2s ease-in-out infinite;
+}
+@keyframes dky-pulse {
+  0%, 100% { box-shadow: 0 0 5px rgba(196, 149, 106, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(196, 149, 106, 0.6); }
+}
+/* ===== SOLD OUT チケットカード ===== */
+.dky-ticket-card.sold-out {
+  position: relative;
+  opacity: 0.55;
+  pointer-events: none;
+}
+.dky-ticket-card.sold-out:hover {
+  transform: none;
+  box-shadow: 0 0 15px rgba(196, 149, 106, 0.15);
+}
+.dky-sold-out-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+.dky-sold-out-overlay span {
+  display: inline-block;
+  background: rgba(180, 50, 50, 0.85);
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 4px;
+  padding: 8px 28px;
+  border-radius: 4px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transform: rotate(-12deg);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  font-family: 'Arial', 'Helvetica', sans-serif;
+}
+/* ===== 注意事項リスト ===== */
+.dky-caution-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.dky-caution-list li {
+  color: #a89e8c;
+  font-size: 0.85em;
+  line-height: 1.7;
+  padding: 4px 0 4px 1.2em;
+  text-indent: -1.2em;
+}
+.dky-caution-list li::before {
+  content: '・';
+  color: #c4956a;
+}
+.dky-caution-list a {
+  color: #c4956a;
+  text-decoration: underline;
+}
+.dky-caution-list a:hover {
+  color: #e07b39;
+}
+/* ===== レスポンシブ ===== */
+@media (max-width: 768px) {
+  .dky-header h1 {
+    font-size: 24px;
+    letter-spacing: 4px;
+  }
+  .dky-header h2 {
+    font-size: 18px;
+  }
+  .dky-ticket-grid {
+    grid-template-columns: 1fr;
+  }
+  .dky-cta-btn,
+  .dky-cta-submit {
+    padding: 15px 35px;
+    font-size: 14px;
+  }
+  .dky-info-label {
+    display: block;
+    width: 100%;
+    margin-bottom: 2px;
+  }
+  .dky-info-table td {
+    display: block;
+    padding: 4px 0;
+  }
+}
