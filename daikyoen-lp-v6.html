@@ -1383,11 +1383,237 @@ a {
   color: var(--fg-dim);
 }
 
+/* お品書き画像 */
+.goods-lineup {
+  margin-bottom: 3rem;
+  border: 1px solid rgba(184, 164, 114, 0.2);
+  background: rgba(255, 255, 255, 0.02);
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.goods-lineup:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.goods-lineup img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 購入特典カード（リッチデザイン） */
+.goods-purchase-bonus {
+  position: relative;
+  margin: 3rem 0;
+  padding: 2.5rem 2rem;
+  background: linear-gradient(135deg, rgba(196, 149, 106, 0.08) 0%, rgba(45, 40, 69, 0.08) 50%, rgba(212, 160, 160, 0.06) 100%);
+  border: 1px solid rgba(184, 164, 114, 0.35);
+  overflow: hidden;
+  text-align: center;
+}
+
+.goods-purchase-bonus::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(184, 164, 114, 0.08), transparent);
+  animation: shimmer 5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.goods-purchase-bonus::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  border: 1px solid rgba(184, 164, 114, 0.2);
+  pointer-events: none;
+}
+
+/* 右上リボン */
+.goods-ribbon {
+  position: absolute;
+  top: 14px;
+  right: -38px;
+  transform: rotate(45deg);
+  background: linear-gradient(135deg, #c45c5c, #8b3a3a);
+  color: #fff;
+  font-family: var(--font-gothic);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  padding: 0.3rem 3rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.goods-ribbon::before,
+.goods-ribbon::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  border-style: solid;
+  border-width: 3px;
+}
+
+.goods-ribbon::before {
+  left: 0;
+  border-color: #5a2323 #5a2323 transparent transparent;
+}
+
+.goods-ribbon::after {
+  right: 0;
+  border-color: #5a2323 transparent transparent #5a2323;
+}
+
+/* お見送り会参加券の説明ブロック */
+.goods-purchase-bonus-note {
+  margin-top: 1.8rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed rgba(184, 164, 114, 0.25);
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.goods-purchase-bonus-note-title {
+  font-family: var(--font-mincho);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  text-align: center;
+  margin-bottom: 0.6rem;
+}
+
+.goods-purchase-bonus-note-lead {
+  font-family: var(--font-gothic);
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: rgba(245, 240, 230, 0.9);
+  text-align: center;
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+.goods-purchase-bonus-note ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.goods-purchase-bonus-note li {
+  font-family: var(--font-gothic);
+  font-size: 0.78rem;
+  font-weight: 300;
+  color: rgba(245, 240, 230, 0.7);
+  line-height: 1.8;
+  margin-bottom: 0.3rem;
+}
+
+.goods-purchase-bonus-note li::before {
+  content: '※ ';
+  color: rgba(184, 164, 114, 0.5);
+}
+
+.goods-purchase-bonus-label {
+  font-family: var(--font-gothic);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 0.6rem;
+  position: relative;
+  z-index: 1;
+}
+
+.goods-purchase-bonus-title {
+  font-family: var(--font-mincho);
+  font-size: clamp(1.2rem, 3.5vw, 1.6rem);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.goods-purchase-bonus-item {
+  font-family: var(--font-mincho);
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  margin-bottom: 1.2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.goods-purchase-bonus-desc {
+  font-family: var(--font-gothic);
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
+  font-weight: 300;
+  line-height: 1.8;
+  color: rgba(245, 240, 230, 0.85);
+  position: relative;
+  z-index: 1;
+}
+
+.goods-purchase-bonus-desc strong {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* 特典画像カード（来場者特典・通し券特典） */
+.goods-benefit-item.has-image {
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.goods-benefit-images {
+  display: flex;
+  gap: 0;
+  width: 100%;
+}
+
+.goods-benefit-images img {
+  width: 100%;
+  height: auto;
+  display: block;
+  flex: 1;
+}
+
+.goods-benefit-body {
+  padding: 1.5rem 1.25rem;
+}
+
+.goods-benefit-item.has-image .goods-benefit-label,
+.goods-benefit-item.has-image .goods-benefit-title,
+.goods-benefit-item.has-image .goods-item-name,
+.goods-benefit-item.has-image .goods-benefit-desc {
+  position: relative;
+  z-index: 1;
+}
+
 @media (min-width: 640px) {
   .goods-benefits {
     flex-direction: row;
   }
-  
+
   .goods-benefit-item {
     flex: 1;
   }
@@ -2097,8 +2323,8 @@ a {
     </div>
 
     <div class="ticket-cta animate-on-scroll">
-      <p class="cta-heading">プレイガイド1次先行</p>
-      <p class="cta-heading-sub">4/4（土）10:00 〜 4/12（日）23:59</p>
+      <p class="cta-heading">一般発売</p>
+      <p class="cta-heading-sub">4/25（土）10:00 〜</p>
       <a href="https://l-tike.com/araki/" target="_blank" class="cta-btn ltike">
         <svg class="cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 10h20"/><path d="M12 4v16"/></svg>
         ローソンチケット
@@ -2152,13 +2378,13 @@ a {
             <p class="timeline-date">3/13（金）19:00 〜 3/22（日）23:59</p>
           </div>
         </div>
-        <div class="timeline-item now-active">
+        <div class="timeline-item ended">
           <div class="timeline-content">
             <p class="timeline-name">プレイガイド1次先行</p>
             <p class="timeline-date">4/4（土）10:00 〜 4/12（日）23:59</p>
           </div>
         </div>
-        <div class="timeline-item">
+        <div class="timeline-item now-active">
           <div class="timeline-content">
             <p class="timeline-name">一般発売</p>
             <p class="timeline-date">4/25（土）10:00 〜</p>
@@ -2184,22 +2410,59 @@ a {
       <h2 class="section-title">グッズ情報</h2>
     </div>
     
-    <div class="goods-benefits animate-on-scroll">
-      <div class="goods-benefit-item">
-        <p class="goods-benefit-label">For All Visitors</p>
-        <p class="goods-benefit-title">来場者特典</p>
-        <p class="goods-item-name">KV缶バッジ</p>
-        <p class="goods-benefit-desc">全来場者にお渡しします<br><small style="color: rgba(245,240,230,0.5);">※一部・二部で異なるデザイン</small></p>
-      </div>
-      <div class="goods-benefit-item featured">
-        <p class="goods-benefit-label">Through Ticket Bonus</p>
-        <p class="goods-benefit-title">限定グッズ</p>
-        <p class="goods-item-name">リップストップリュック</p>
-        <p class="goods-benefit-desc">一部・二部通し券「宴チケット」に付属</p>
+    <!-- お品書き画像 -->
+    <div class="goods-lineup animate-on-scroll">
+      <img src="img/goods-lineup.jpg" alt="大響宴 オフィシャルグッズ お品書き" onerror="this.parentElement.innerHTML='<div style=\'padding:5rem 2rem;text-align:center;color:rgba(245,240,230,0.4);font-family:var(--font-gothic);letter-spacing:0.15em;font-size:0.85rem;\'>お品書き画像<br><small style=\'font-size:0.7rem;opacity:0.6;\'>（後日掲載）</small></div>'">
+    </div>
+
+    <!-- 購入特典 -->
+    <div class="goods-purchase-bonus animate-on-scroll">
+      <div class="goods-ribbon">特典</div>
+      <span class="goods-purchase-bonus-label">Purchase Bonus</span>
+      <h3 class="goods-purchase-bonus-title">購入特典</h3>
+      <p class="goods-purchase-bonus-item">お見送り会参加券</p>
+      <p class="goods-purchase-bonus-desc">
+        グッズ <strong>¥12,000</strong> お買い上げごとに<br>
+        「お見送り会参加券」を <strong>1枚</strong> 同封／お渡しします
+      </p>
+
+      <div class="goods-purchase-bonus-note">
+        <p class="goods-purchase-bonus-note-title">お見送り会参加券とは？</p>
+        <p class="goods-purchase-bonus-note-lead">終演後の「お見送り会」に参加できる券</p>
+        <ul>
+          <li>昼公演・夜公演どちらでも使用可</li>
+          <li>1枚につき1回のみ使用可（複数枚所持で複数回参加可能）</li>
+          <li>転売・譲渡は禁止</li>
+          <li>紛失時の再発行は不可</li>
+        </ul>
       </div>
     </div>
-    
-    <p class="goods-note animate-on-scroll">ライブオフィシャルグッズ詳細は後日発表予定です。</p>
+
+    <!-- 来場者特典・通し券特典 -->
+    <div class="goods-benefits animate-on-scroll">
+      <div class="goods-benefit-item has-image">
+        <div class="goods-benefit-images">
+          <img src="img/badge_1.jpg" alt="KV缶バッジ">
+        </div>
+        <div class="goods-benefit-body">
+          <p class="goods-benefit-label">For All Visitors</p>
+          <p class="goods-benefit-title">来場者特典</p>
+          <p class="goods-item-name">KV缶バッジ</p>
+          <p class="goods-benefit-desc">全来場者にお渡しします<br><small style="color: rgba(245,240,230,0.5);">※一部・二部で異なるデザイン</small></p>
+        </div>
+      </div>
+      <div class="goods-benefit-item featured has-image">
+        <div class="goods-benefit-images">
+          <img src="img/bag.jpg" alt="リップストップリュック">
+        </div>
+        <div class="goods-benefit-body">
+          <p class="goods-benefit-label">Through Ticket Bonus</p>
+          <p class="goods-benefit-title">宴チケット特典</p>
+          <p class="goods-item-name">リップストップリュック</p>
+          <p class="goods-benefit-desc">一部・二部通し券「宴チケット」に付属</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
