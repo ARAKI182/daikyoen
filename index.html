@@ -1385,11 +1385,64 @@ a {
 
 /* お品書き画像 */
 .goods-lineup {
-  margin-bottom: 3rem;
+  margin-bottom: 1.2rem;
   border: 1px solid rgba(184, 164, 114, 0.2);
   background: rgba(255, 255, 255, 0.02);
   overflow: hidden;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* お品書き画像ダウンロードボタン */
+.goods-lineup-download {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto 3rem;
+  max-width: 360px;
+}
+
+.goods-lineup-download-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.8rem 1.5rem;
+  font-family: var(--font-gothic);
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  color: var(--fg);
+  border: 1px solid rgba(184, 164, 114, 0.35);
+  background: rgba(184, 164, 114, 0.04);
+  border-radius: 3px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.goods-lineup-download-btn:hover {
+  color: var(--gold);
+  border-color: var(--gold);
+  background: rgba(184, 164, 114, 0.1);
+}
+
+.goods-lineup-download-btn svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.8;
+}
+
+.goods-lineup-download-note {
+  font-family: var(--font-gothic);
+  font-size: 0.7rem;
+  font-weight: 300;
+  color: var(--fg-dim);
+  margin-top: 0.6rem;
+  letter-spacing: 0.05em;
+  text-align: center;
+  line-height: 1.6;
 }
 
 .goods-lineup:hover {
@@ -2414,6 +2467,18 @@ a {
     <div class="goods-lineup animate-on-scroll">
       <img src="img/goods-lineup.jpg" alt="大響宴 オフィシャルグッズ お品書き" onerror="this.parentElement.innerHTML='<div style=\'padding:5rem 2rem;text-align:center;color:rgba(245,240,230,0.4);font-family:var(--font-gothic);letter-spacing:0.15em;font-size:0.85rem;\'>お品書き画像<br><small style=\'font-size:0.7rem;opacity:0.6;\'>（後日掲載）</small></div>'">
     </div>
+    <div class="goods-lineup-download animate-on-scroll">
+      <a href="img/goods-lineup.jpg" target="_blank" rel="noopener" class="goods-lineup-download-btn">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 3v13M7 12l5 5 5-5M5 21h14" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        グッズ画像を保存する
+      </a>
+      <p class="goods-lineup-download-note">
+        ボタンをタップすると別タブで画像が開きます<br>
+        長押し（スマホ）／右クリック（PC）で保存してください
+      </p>
+    </div>
 
     <!-- 購入特典 -->
     <div class="goods-purchase-bonus animate-on-scroll">
@@ -2508,6 +2573,32 @@ a {
           <li>鋭利なアクセサリー、長いチェーンやストラップは接触事故防止のため着用をお控えください</li>
           <li>極端に大きな帽子や装飾は後方のお客様の視界を遮るためご遠慮ください</li>
           <li>客席内での撮影/録音/録画行為は一切禁止とさせていただきます</li>
+        </ul>
+      </div>
+    </details>
+    <details class="notice-item">
+      <summary>グッズ購入について</summary>
+      <div class="notice-item-content">
+        <ul>
+          <li>会場でのグッズ購入には、本イベントのチケットが必要になります。</li>
+          <li>グッズを購入される際はチケット画面をご準備の上、整列していただくようご協力をよろしくお願いいたします。</li>
+          <li>表示価格は税込です。</li>
+          <li>画像はイメージです。商品のデザイン／仕様は変更となる場合がございます。</li>
+          <li>バッグ類の販売、および商品お持ち帰り用の袋お渡しはありません。</li>
+          <li>イベント販売商品のため数に限りがございます。品切れの際はご容赦ください。</li>
+          <li>お支払い方法は現金、クレジットカード、交通系IC、iD、QUICPay、PayPayがご利用いただけます。</li>
+          <li>クレジットカードのお支払い回数は一括のみとなります。</li>
+          <li>キャッシュレス決済は当日の電波状況によってはご利用できない可能性がございます。</li>
+          <li>不良品対応は購入当日の会場グッズ窓口のみとなります。</li>
+          <li>各商品の購入制限数は1会計あたり各商品2点までとなります。</li>
+          <li>ご購入品のお渡し間違い、釣り銭不足などの不手際は無いように心掛けて販売を行いますが、必ず購入時に販売員とお客様で内容のご確認をお願いいたします。購入後のお申し出にはご対応いたしかねます。</li>
+          <li>待機列ではスタッフの指示に従ってください。</li>
+          <li>待機列への割り込みは禁止となります。お連れ様が先に並んでいても途中合流は禁止とさせていただきます。</li>
+          <li>トイレなどで列を離れる際には列の前後の方に声をかけ、必ず了承を得てください。</li>
+          <li>列を離れる際には荷物を置いたままにはしないでください。</li>
+          <li>貴重品は個人の責任において管理をお願いいたします。</li>
+          <li>盗難・紛失等は責任を負いかねますので十分にご注意ください。</li>
+          <li>その他、ルール違反や周りの迷惑になる行為があった場合は、販売をお断りさせていただく場合がございます。</li>
         </ul>
       </div>
     </details>
