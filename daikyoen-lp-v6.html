@@ -121,11 +121,25 @@ html {
 
 body {
   font-family: var(--font-mincho);
-  background: var(--bg) url('img/bg-texture.jpg') center / cover fixed;
+  background-color: var(--bg);
   color: var(--fg);
   line-height: 1.9;
   min-height: 100vh;
   overflow-x: hidden;
+  position: relative;
+}
+
+/* 固定背景テクスチャ（iOS Safariでも正しくcoverされるよう疑似要素で実装） */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('img/bg-texture.jpg') center / cover no-repeat;
+  z-index: -1;
+  pointer-events: none;
 }
 
 body.menu-open {
