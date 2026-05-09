@@ -1599,14 +1599,71 @@ a {
   color: rgba(245, 240, 230, 0.55);
 }
 
+/* 申込みステップ */
+.mogiri-prereq {
+  margin-top: 1rem;
+  padding: 0.85rem 1rem;
+  background: rgba(6, 199, 85, 0.08);
+  border-left: 3px solid #06c755;
+  font-family: var(--font-gothic);
+  font-size: 0.82rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(245, 240, 230, 0.9);
+  text-align: center;
+}
+
+.mogiri-prereq strong {
+  color: #5fe89c;
+  font-weight: 600;
+}
+
+.mogiri-steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.mogiri-step {
+  padding: 1.1rem 1rem 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(6, 199, 85, 0.2);
+  text-align: center;
+  position: relative;
+}
+
+.mogiri-step-num {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  padding: 0.2rem 0.7rem;
+  font-family: var(--font-gothic);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: #06c755;
+  background: rgba(6, 199, 85, 0.12);
+  border: 1px solid rgba(6, 199, 85, 0.3);
+  border-radius: 2px;
+}
+
+.mogiri-step-label {
+  font-family: var(--font-mincho);
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: rgba(245, 240, 230, 0.95);
+  margin-bottom: 0.8rem;
+}
+
 .mogiri-cta-btn {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
-  margin: 1rem auto 0;
-  max-width: 360px;
-  padding: 0.9rem 1.5rem;
+  margin: 0 auto;
+  max-width: 320px;
+  padding: 0.85rem 1.5rem;
   font-family: var(--font-gothic);
   font-size: 0.85rem;
   font-weight: 500;
@@ -1623,6 +1680,46 @@ a {
   transform: translateY(-2px);
   background: linear-gradient(135deg, #08d65b, #05b948);
   box-shadow: 0 8px 25px rgba(6, 199, 85, 0.35);
+}
+
+/* STEP 2: ゴールドボタン */
+.mogiri-cta-btn-apply {
+  background: linear-gradient(135deg, #c9a84c, #a0843a);
+  border-color: rgba(201, 168, 76, 0.6);
+  box-shadow: 0 4px 15px rgba(201, 168, 76, 0.2);
+}
+
+.mogiri-cta-btn-apply:hover {
+  background: linear-gradient(135deg, #d6b658, #b69042);
+  box-shadow: 0 8px 25px rgba(201, 168, 76, 0.35);
+}
+
+/* STEP 2 枠もゴールド寄りに */
+.mogiri-step-apply {
+  border-color: rgba(201, 168, 76, 0.3);
+}
+
+.mogiri-step-apply .mogiri-step-num {
+  color: var(--gold);
+  background: rgba(201, 168, 76, 0.12);
+  border-color: rgba(201, 168, 76, 0.3);
+}
+
+@media (min-width: 640px) {
+  .mogiri-steps {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .mogiri-step:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    top: 50%;
+    right: -1.4rem;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    color: rgba(6, 199, 85, 0.6);
+    z-index: 1;
+  }
 }
 
 .mogiri-cta-btn svg {
@@ -3426,12 +3523,35 @@ a {
           </div>
         </div>
 
-        <a href="https://miniapp.line.me/2007769752-GnbPlN58/?boothID=YJGJmKS5cMCZjEyXBdpc&eventID=5YZvtWaMbWFG0vzJwT6K" target="_blank" rel="noopener" class="mogiri-cta-btn">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M19 4H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-3.5 11.5l-1.06 1.06L12 14.12l-2.44 2.44-1.06-1.06L10.94 13l-2.44-2.44 1.06-1.06L12 11.88l2.44-2.44 1.06 1.06L13.06 13l2.44 2.5z"/>
-          </svg>
-          物販整理券を申し込む
-        </a>
+        <p class="mogiri-prereq">
+          <strong>申込みには「あらき公式LINE」の友だち追加が必要です。</strong><br>
+          以下のステップに沿ってお進みください。
+        </p>
+
+        <div class="mogiri-steps">
+          <div class="mogiri-step">
+            <span class="mogiri-step-num">STEP 1</span>
+            <p class="mogiri-step-label">あらき公式LINEを友だち追加</p>
+            <a href="https://lin.ee/tDlwXAO" target="_blank" rel="noopener" class="mogiri-cta-btn">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19 4H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-3.5 11.5l-1.06 1.06L12 14.12l-2.44 2.44-1.06-1.06L10.94 13l-2.44-2.44 1.06-1.06L12 11.88l2.44-2.44 1.06 1.06L13.06 13l2.44 2.5z"/>
+              </svg>
+              友だち追加
+            </a>
+          </div>
+
+          <div class="mogiri-step mogiri-step-apply">
+            <span class="mogiri-step-num">STEP 2</span>
+            <p class="mogiri-step-label">物販整理券を申し込む</p>
+            <a href="https://miniapp.line.me/2007769752-GnbPlN58/?boothID=YJGJmKS5cMCZjEyXBdpc&eventID=5YZvtWaMbWFG0vzJwT6K" target="_blank" rel="noopener" class="mogiri-cta-btn mogiri-cta-btn-apply">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 12l2 2 4-4"/>
+                <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"/>
+              </svg>
+              申込みフォームへ
+            </a>
+          </div>
+        </div>
       </div>
 
       <div class="goods-venue-sales-block">
@@ -3475,6 +3595,7 @@ a {
       <details class="venue-sales-details">
         <summary>物販整理券の注意事項</summary>
         <ul class="venue-sales-notes">
+          <li>申込みには「あらき公式LINE」の友だち追加が必要です</li>
           <li>物販整理券は無料です</li>
           <li>グッズ在庫の確保を必ずしもお約束するものではございません</li>
           <li>整理券1枚につき1名様までご入場いただけます</li>
