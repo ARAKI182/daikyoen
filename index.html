@@ -1397,6 +1397,17 @@ a {
   color: var(--fg-dim);
 }
 
+.goods-benefits-note {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-family: var(--font-gothic);
+  font-size: 0.78rem;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  color: rgba(245, 240, 230, 0.6);
+  line-height: 1.7;
+}
+
 /* お品書き画像 */
 .goods-lineup {
   margin-bottom: 1.2rem;
@@ -1468,6 +1479,580 @@ a {
   width: 100%;
   height: auto;
   display: block;
+}
+
+/* 会場物販ブロック */
+.goods-venue-sales {
+  position: relative;
+  margin: 1rem 0 3rem;
+  padding: 2.5rem 2rem;
+  background: linear-gradient(135deg, rgba(196, 149, 106, 0.07) 0%, rgba(184, 164, 114, 0.05) 50%, rgba(45, 40, 69, 0.06) 100%);
+  border: 1px solid rgba(196, 149, 106, 0.3);
+  overflow: hidden;
+}
+
+.goods-venue-sales::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  border: 1px solid rgba(196, 149, 106, 0.15);
+  pointer-events: none;
+}
+
+.goods-venue-sales-label {
+  font-family: var(--font-gothic);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.goods-venue-sales-title {
+  font-family: var(--font-mincho);
+  font-size: clamp(1.2rem, 3.5vw, 1.6rem);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.goods-venue-sales-block {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed rgba(196, 149, 106, 0.25);
+  position: relative;
+  z-index: 1;
+}
+
+.goods-venue-sales-block:first-of-type {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+.goods-venue-sales-block-title {
+  font-family: var(--font-mincho);
+  font-size: clamp(0.95rem, 2.2vw, 1.05rem);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  margin-bottom: 0.8rem;
+  text-align: center;
+}
+
+.goods-venue-sales-block-lead {
+  font-family: var(--font-gothic);
+  font-size: 0.82rem;
+  font-weight: 300;
+  line-height: 1.85;
+  color: rgba(245, 240, 230, 0.85);
+  text-align: center;
+  margin-bottom: 1.2rem;
+}
+
+/* 物販整理券 申込スケジュール */
+.mogiri-schedule {
+  margin: 0 auto 1.2rem;
+  max-width: 540px;
+}
+
+.mogiri-phase {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.3rem;
+  padding: 0.85rem 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-left: 2px solid var(--gold);
+  margin-bottom: 0.6rem;
+}
+
+.mogiri-phase-label {
+  font-family: var(--font-gothic);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+}
+
+.mogiri-phase-period {
+  font-family: var(--font-mincho);
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: rgba(245, 240, 230, 0.9);
+}
+
+.mogiri-phase-note {
+  font-family: var(--font-gothic);
+  font-size: 0.7rem;
+  font-weight: 300;
+  color: rgba(245, 240, 230, 0.55);
+}
+
+.mogiri-cta-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin: 1rem auto 0;
+  max-width: 360px;
+  padding: 0.9rem 1.5rem;
+  font-family: var(--font-gothic);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: #fff;
+  background: linear-gradient(135deg, #06c755, #04a843);
+  border: 1px solid rgba(6, 199, 85, 0.6);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(6, 199, 85, 0.2);
+}
+
+.mogiri-cta-btn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #08d65b, #05b948);
+  box-shadow: 0 8px 25px rgba(6, 199, 85, 0.35);
+}
+
+.mogiri-cta-btn svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+/* 販売スケジュール タイムライン */
+.sales-timeline {
+  margin: 0 auto;
+  max-width: 540px;
+}
+
+.sales-timeline-row {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 0.8rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid rgba(184, 164, 114, 0.1);
+  align-items: center;
+}
+
+.sales-timeline-row:last-child {
+  border-bottom: none;
+}
+
+.sales-timeline-time {
+  font-family: var(--font-mincho);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--gold);
+  text-align: right;
+}
+
+.sales-timeline-event {
+  font-family: var(--font-gothic);
+  font-size: 0.82rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(245, 240, 230, 0.9);
+}
+
+.sales-timeline-event small {
+  display: block;
+  font-size: 0.7rem;
+  color: rgba(245, 240, 230, 0.55);
+  margin-top: 0.15rem;
+}
+
+.sales-timeline-row.pause {
+  opacity: 0.55;
+}
+
+.sales-timeline-row.pause .sales-timeline-time {
+  color: rgba(184, 164, 114, 0.5);
+}
+
+.sales-timeline-row.pause .sales-timeline-event {
+  font-style: italic;
+  color: rgba(245, 240, 230, 0.55);
+}
+
+@media (max-width: 480px) {
+  .sales-timeline-row {
+    grid-template-columns: 92px 1fr;
+    gap: 0.6rem;
+  }
+
+  .sales-timeline-time {
+    font-size: 0.78rem;
+  }
+
+  .sales-timeline-event {
+    font-size: 0.78rem;
+  }
+}
+
+/* 物販整理券 注意事項アコーディオン */
+.venue-sales-details {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed rgba(196, 149, 106, 0.25);
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.venue-sales-details summary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.2rem;
+  font-family: var(--font-gothic);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: rgba(245, 240, 230, 0.85);
+  border: 1px solid rgba(196, 149, 106, 0.4);
+  background: rgba(196, 149, 106, 0.06);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  list-style: none;
+  user-select: none;
+}
+
+.venue-sales-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.venue-sales-details summary::after {
+  content: '+';
+  font-family: var(--font-gothic);
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--gold);
+  transition: transform 0.3s ease;
+}
+
+.venue-sales-details[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.venue-sales-details summary:hover {
+  color: var(--gold);
+  border-color: var(--gold);
+  background: rgba(196, 149, 106, 0.12);
+}
+
+.venue-sales-notes {
+  list-style: none;
+  padding: 1.2rem 0 0 0;
+  margin: 0;
+  text-align: left;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.venue-sales-notes li {
+  font-family: var(--font-gothic);
+  font-size: 0.78rem;
+  font-weight: 300;
+  line-height: 1.85;
+  color: rgba(245, 240, 230, 0.78);
+  padding-left: 1.2em;
+  position: relative;
+  margin-bottom: 0.55rem;
+}
+
+.venue-sales-notes li::before {
+  content: '・';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+}
+
+/* 事前通販カード */
+.goods-ec-preorder {
+  position: relative;
+  margin: 1rem 0 3rem;
+  padding: 2.5rem 2rem;
+  background: linear-gradient(135deg, rgba(107, 127, 215, 0.08) 0%, rgba(45, 40, 69, 0.12) 50%, rgba(184, 164, 114, 0.05) 100%);
+  border: 1px solid rgba(107, 127, 215, 0.35);
+  overflow: hidden;
+  text-align: center;
+}
+
+.goods-ec-preorder::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(107, 127, 215, 0.08), transparent);
+  animation: shimmer 5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.goods-ec-preorder::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  border: 1px solid rgba(107, 127, 215, 0.2);
+  pointer-events: none;
+}
+
+.goods-ec-preorder-label {
+  font-family: var(--font-gothic);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #8ea0e8;
+  display: block;
+  margin-bottom: 0.6rem;
+  position: relative;
+  z-index: 1;
+}
+
+.goods-ec-preorder-title {
+  font-family: var(--font-mincho);
+  font-size: clamp(1.2rem, 3.5vw, 1.6rem);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  margin-bottom: 1.2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.goods-ec-preorder-period-label {
+  font-family: var(--font-gothic);
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  color: var(--fg-dim);
+  display: block;
+  margin-bottom: 0.3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.goods-ec-preorder-period {
+  font-family: var(--font-mincho);
+  font-size: clamp(0.95rem, 2.3vw, 1.1rem);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--fg);
+  margin-bottom: 1.8rem;
+  position: relative;
+  z-index: 1;
+}
+
+.goods-ec-preorder-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.9rem 2.2rem;
+  font-family: var(--font-gothic);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  color: #fff;
+  background: linear-gradient(135deg, #6b7fd7, #4a5a9f);
+  border: 1px solid rgba(107, 127, 215, 0.6);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 4px 15px rgba(107, 127, 215, 0.2);
+}
+
+.goods-ec-preorder-btn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #7a8ee2, #5569b0);
+  box-shadow: 0 8px 25px rgba(107, 127, 215, 0.35);
+}
+
+/* 事前通販 受付終了 */
+.goods-ec-preorder.ended {
+  opacity: 0.85;
+}
+
+.goods-ec-preorder.ended::before {
+  display: none;
+}
+
+.goods-ec-preorder-ended-badge {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.35rem 1rem;
+  font-family: var(--font-gothic);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  color: rgba(245, 240, 230, 0.85);
+  background: rgba(120, 120, 130, 0.4);
+  border: 1px solid rgba(180, 180, 190, 0.4);
+  border-radius: 3px;
+  position: relative;
+  z-index: 1;
+}
+
+.goods-ec-preorder.ended .goods-ec-preorder-btn {
+  pointer-events: none;
+  opacity: 0.4;
+  filter: grayscale(0.8);
+  background: linear-gradient(135deg, #555, #333);
+  border-color: rgba(180, 180, 190, 0.3);
+  box-shadow: none;
+}
+
+/* 事前通販 詳細アコーディオン */
+.goods-ec-preorder-details {
+  margin-top: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.goods-ec-preorder-details summary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.2rem;
+  font-family: var(--font-gothic);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  color: rgba(245, 240, 230, 0.7);
+  border: 1px solid rgba(107, 127, 215, 0.3);
+  background: rgba(107, 127, 215, 0.05);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  list-style: none;
+  user-select: none;
+}
+
+.goods-ec-preorder-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.goods-ec-preorder-details summary::after {
+  content: '+';
+  font-family: var(--font-gothic);
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: rgba(107, 127, 215, 0.7);
+  transition: transform 0.3s ease;
+}
+
+.goods-ec-preorder-details[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.goods-ec-preorder-details summary:hover {
+  color: var(--fg);
+  border-color: rgba(107, 127, 215, 0.6);
+  background: rgba(107, 127, 215, 0.1);
+}
+
+.goods-ec-preorder-details .goods-ec-preorder-notes {
+  margin-top: 1.2rem;
+  padding-top: 0;
+  border-top: none;
+}
+
+.goods-ec-preorder-btn svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+}
+
+.goods-ec-preorder-notes {
+  margin-top: 1.8rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed rgba(107, 127, 215, 0.25);
+  position: relative;
+  z-index: 1;
+}
+
+.goods-ec-preorder-notes ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.goods-ec-preorder-notes li {
+  font-family: var(--font-gothic);
+  font-size: 0.78rem;
+  font-weight: 300;
+  color: rgba(245, 240, 230, 0.7);
+  line-height: 1.8;
+  margin-bottom: 0.3rem;
+}
+
+.goods-ec-preorder-notes li::before {
+  content: '※ ';
+  color: rgba(107, 127, 215, 0.6);
+}
+
+.goods-ec-preorder-subnotes {
+  margin-top: 1.5rem;
+  padding: 1.2rem 1rem;
+  background: rgba(107, 127, 215, 0.05);
+  border-left: 2px solid rgba(107, 127, 215, 0.4);
+  text-align: left;
+}
+
+.goods-ec-preorder-subnotes-title {
+  font-family: var(--font-mincho);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #8ea0e8;
+  margin-bottom: 0.8rem;
+  text-align: center;
+}
+
+.goods-ec-preorder-subnotes ul {
+  max-width: 100%;
+}
+
+.goods-ec-preorder-subnotes li {
+  font-size: 0.75rem;
+  line-height: 1.7;
+}
+
+.goods-ec-preorder-footnote {
+  margin-top: 1.2rem;
+  font-family: var(--font-gothic);
+  font-size: 0.72rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(245, 240, 230, 0.55);
+  text-align: center;
 }
 
 /* 購入特典カード（リッチデザイン） */
@@ -1594,6 +2179,106 @@ a {
   color: rgba(184, 164, 114, 0.5);
 }
 
+/* お見送り会参加方法マトリクス */
+.goods-meetgreet-matrix {
+  margin-top: 1.8rem;
+  padding: 1.5rem 1.2rem;
+  background: rgba(184, 164, 114, 0.05);
+  border: 1px solid rgba(184, 164, 114, 0.2);
+  position: relative;
+  z-index: 1;
+}
+
+.goods-meetgreet-matrix-title {
+  font-family: var(--font-mincho);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  text-align: center;
+  margin-bottom: 0.4rem;
+}
+
+.goods-meetgreet-matrix-lead {
+  font-family: var(--font-gothic);
+  font-size: 0.78rem;
+  font-weight: 300;
+  color: rgba(245, 240, 230, 0.75);
+  text-align: center;
+  margin-bottom: 1.2rem;
+  letter-spacing: 0.05em;
+}
+
+.goods-meetgreet-matrix-table {
+  border: 1px solid rgba(184, 164, 114, 0.25);
+}
+
+.goods-meetgreet-row {
+  display: grid;
+  grid-template-columns: 1.4fr 1.4fr 0.9fr;
+  font-family: var(--font-gothic);
+  font-size: 0.78rem;
+  font-weight: 300;
+  color: rgba(245, 240, 230, 0.85);
+  border-bottom: 1px solid rgba(184, 164, 114, 0.15);
+}
+
+.goods-meetgreet-row:last-child {
+  border-bottom: none;
+}
+
+.goods-meetgreet-row > div {
+  padding: 0.75rem 0.7rem;
+  line-height: 1.55;
+  border-right: 1px solid rgba(184, 164, 114, 0.12);
+}
+
+.goods-meetgreet-row > div:last-child {
+  border-right: none;
+  text-align: center;
+  color: var(--gold);
+  font-weight: 500;
+}
+
+.goods-meetgreet-head {
+  background: rgba(184, 164, 114, 0.1);
+}
+
+.goods-meetgreet-head > div {
+  font-family: var(--font-mincho);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  text-align: center;
+}
+
+.goods-meetgreet-matrix-footnote {
+  margin-top: 1rem;
+  font-family: var(--font-gothic);
+  font-size: 0.72rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(245, 240, 230, 0.6);
+  text-align: center;
+}
+
+@media (max-width: 560px) {
+  .goods-meetgreet-row {
+    grid-template-columns: 1fr 1fr 0.7fr;
+    font-size: 0.7rem;
+  }
+
+  .goods-meetgreet-row > div {
+    padding: 0.65rem 0.45rem;
+  }
+
+  .goods-meetgreet-head > div {
+    font-size: 0.68rem;
+    letter-spacing: 0.05em;
+  }
+}
+
 .goods-purchase-bonus-label {
   font-family: var(--font-gothic);
   font-size: 0.65rem;
@@ -1643,6 +2328,17 @@ a {
   font-weight: 600;
 }
 
+.goods-purchase-bonus-rule {
+  margin-top: 1rem;
+  font-family: var(--font-gothic);
+  font-size: 0.75rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: rgba(245, 240, 230, 0.6);
+  position: relative;
+  z-index: 1;
+}
+
 /* 特典画像カード（来場者特典・通し券特典） */
 .goods-benefit-item.has-image {
   padding: 0;
@@ -1683,6 +2379,233 @@ a {
 
   .goods-benefit-item {
     flex: 1;
+  }
+}
+
+/* ========================================
+   FC Section
+======================================== */
+.fc {
+  background: rgba(12, 10, 15, 0.85);
+  position: relative;
+}
+
+.fc-content {
+  position: relative;
+  z-index: 1;
+}
+
+.fc-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding-top: 1.5rem;
+}
+
+.fc-item {
+  position: relative;
+  padding: 2.5rem 2rem 1.8rem 2rem;
+  background: linear-gradient(135deg, rgba(212, 160, 160, 0.06) 0%, rgba(196, 149, 106, 0.05) 50%, rgba(45, 40, 69, 0.05) 100%);
+  border: 1px solid rgba(212, 160, 160, 0.25);
+  overflow: visible;
+  transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.fc-item:hover {
+  transform: translateY(-2px);
+  border-color: rgba(212, 160, 160, 0.5);
+}
+
+.fc-item::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  border: 1px solid rgba(212, 160, 160, 0.15);
+  pointer-events: none;
+}
+
+.fc-item-number {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--sakura), #b48383);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mincho);
+  font-size: 1.1rem;
+  font-weight: 700;
+  box-shadow: 0 3px 12px rgba(212, 160, 160, 0.3);
+  z-index: 2;
+}
+
+.fc-item-title {
+  font-family: var(--font-mincho);
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--sakura);
+  text-align: center;
+  margin-top: 0.3rem;
+  margin-bottom: 1.2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.fc-item-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 560px;
+  position: relative;
+  z-index: 1;
+}
+
+.fc-item-list li {
+  font-family: var(--font-gothic);
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: rgba(245, 240, 230, 0.85);
+  line-height: 1.85;
+  padding-left: 1.2em;
+  position: relative;
+  margin-bottom: 0.3rem;
+}
+
+.fc-item-list li::before {
+  content: '・';
+  position: absolute;
+  left: 0;
+  color: var(--sakura);
+}
+
+.fc-item-note {
+  margin-top: 1rem;
+  padding-top: 0.9rem;
+  border-top: 1px dashed rgba(212, 160, 160, 0.2);
+  font-family: var(--font-gothic);
+  font-size: 0.75rem;
+  font-weight: 300;
+  line-height: 1.75;
+  color: rgba(245, 240, 230, 0.65);
+  text-align: left;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.fc-item-note span {
+  color: var(--sakura);
+}
+
+/* ========================================
+   Movie Section
+======================================== */
+.movie {
+  background: rgba(19, 17, 26, 0.80);
+  position: relative;
+}
+
+.movie-content {
+  position: relative;
+  z-index: 1;
+}
+
+.movie-lead {
+  text-align: center;
+  font-family: var(--font-mincho);
+  font-size: clamp(0.85rem, 2vw, 0.95rem);
+  color: var(--fg-dim);
+  letter-spacing: 0.15em;
+  line-height: 2;
+  margin-bottom: 3rem;
+}
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.movie-item {
+  position: relative;
+}
+
+.movie-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 1px solid rgba(184, 164, 114, 0.25);
+  background: rgba(12, 10, 15, 0.6);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.movie-frame:hover {
+  transform: translateY(-3px);
+  border-color: rgba(184, 164, 114, 0.5);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(196, 149, 106, 0.1);
+}
+
+.movie-frame iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.movie-meta {
+  margin-top: 1.2rem;
+  text-align: center;
+}
+
+.movie-label {
+  font-family: var(--font-gothic);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.movie-title {
+  font-family: var(--font-mincho);
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--fg);
+  margin-bottom: 0.3rem;
+}
+
+.movie-sub {
+  font-family: var(--font-gothic);
+  font-size: 0.72rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: var(--fg-dim);
+}
+
+@media (min-width: 768px) {
+  .movie-grid.has-two {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 100%;
   }
 }
 
@@ -2213,6 +3136,8 @@ a {
       <a href="#live">Live Info</a>
       <a href="#ticket">Ticket</a>
       <a href="#goods">Goods</a>
+      <a href="#fc">FC</a>
+      <a href="#movie">Movie</a>
       <a href="#notice">Notice</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -2477,6 +3402,94 @@ a {
       <h2 class="section-title">グッズ情報</h2>
     </div>
     
+    <!-- 会場物販・整理券 -->
+    <div class="goods-venue-sales animate-on-scroll">
+      <span class="goods-venue-sales-label">Venue Sales</span>
+      <h3 class="goods-venue-sales-title">会場物販・整理券について</h3>
+
+      <div class="goods-venue-sales-block">
+        <h4 class="goods-venue-sales-block-title">物販整理券</h4>
+        <p class="goods-venue-sales-block-lead">
+          混雑緩和のため、LINEアプリを利用した物販整理券（無料）を導入いたします。<br>
+          12:00〜13:30 の先行販売枠は <strong style="color:var(--gold);">物販整理券</strong> をお持ちの方限定です。
+        </p>
+
+        <div class="mogiri-schedule">
+          <div class="mogiri-phase">
+            <span class="mogiri-phase-label">1次先行抽選</span>
+            <span class="mogiri-phase-period">2026/5/10（日）19:00 〜 5/17（日）21:00</span>
+          </div>
+          <div class="mogiri-phase">
+            <span class="mogiri-phase-label">2次一般先着</span>
+            <span class="mogiri-phase-period">2026/5/20（水）20:00 〜 上限数に達し次第終了</span>
+            <span class="mogiri-phase-note">※物販整理券在庫が余れば実施／定員数：1次先行のあまりを充当</span>
+          </div>
+        </div>
+
+        <a href="https://miniapp.line.me/2007769752-GnbPlN58/?boothID=YJGJmKS5cMCZjEyXBdpc&eventID=5YZvtWaMbWFG0vzJwT6K" target="_blank" rel="noopener" class="mogiri-cta-btn">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 4H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-3.5 11.5l-1.06 1.06L12 14.12l-2.44 2.44-1.06-1.06L10.94 13l-2.44-2.44 1.06-1.06L12 11.88l2.44-2.44 1.06 1.06L13.06 13l2.44 2.5z"/>
+          </svg>
+          物販整理券を申し込む
+        </a>
+      </div>
+
+      <div class="goods-venue-sales-block">
+        <h4 class="goods-venue-sales-block-title">当日販売スケジュール</h4>
+        <div class="sales-timeline">
+          <div class="sales-timeline-row">
+            <div class="sales-timeline-time">12:00〜13:30</div>
+            <div class="sales-timeline-event">先行販売<small>※物販整理券をお持ちの方</small></div>
+          </div>
+          <div class="sales-timeline-row pause">
+            <div class="sales-timeline-time">13:30〜14:00</div>
+            <div class="sales-timeline-event">開場準備のため販売休止</div>
+          </div>
+          <div class="sales-timeline-row">
+            <div class="sales-timeline-time">14:00〜</div>
+            <div class="sales-timeline-event">1部開場・販売開始</div>
+          </div>
+          <div class="sales-timeline-row">
+            <div class="sales-timeline-time">15:20〜16:30</div>
+            <div class="sales-timeline-event">2部参加の方向け先行販売</div>
+          </div>
+          <div class="sales-timeline-row">
+            <div class="sales-timeline-time">16:40〜17:30</div>
+            <div class="sales-timeline-event">1部終演後販売<small>※2部の方もご購入いただけます</small></div>
+          </div>
+          <div class="sales-timeline-row pause">
+            <div class="sales-timeline-time">17:30〜18:00</div>
+            <div class="sales-timeline-event">開場準備のため販売休止</div>
+          </div>
+          <div class="sales-timeline-row">
+            <div class="sales-timeline-time">18:00〜</div>
+            <div class="sales-timeline-event">2部開場・販売開始</div>
+          </div>
+          <div class="sales-timeline-row">
+            <div class="sales-timeline-time">20:45〜</div>
+            <div class="sales-timeline-event">2部終演後販売</div>
+          </div>
+        </div>
+      </div>
+
+      <details class="venue-sales-details">
+        <summary>物販整理券の注意事項</summary>
+        <ul class="venue-sales-notes">
+          <li>物販整理券は無料です</li>
+          <li>グッズ在庫の確保を必ずしもお約束するものではございません</li>
+          <li>整理券1枚につき1名様までご入場いただけます</li>
+          <li>ご家族・友人同士、付き添いの場合でもそれぞれ整理券のお申し込みをいただく必要がございます</li>
+          <li>入場可能状態になるとLINEにメッセージが届き、QRコードが表示されます。QRコードを売場入口のスタッフにご提示の上、ご入場ください（入場可能状態になるまでQRコードは表示されません）</li>
+          <li>スクリーンショットでの整理券提示は無効です</li>
+          <li>整理券の呼出時間を過ぎますと、整理券は無効となり入場することができません</li>
+          <li>売場の混雑状況により呼出時間が前後する場合、また整理券不要となる場合があります</li>
+          <li>整理券の譲渡・転売は禁止です</li>
+          <li>本人確認をさせていただく場合もございます。身分証を必ずご持参ください</li>
+          <li>スマートフォン／タブレット端末およびLINEアプリをお持ちでない方は整理券のお申し込みをいただけません。予めご了承ください</li>
+        </ul>
+      </details>
+    </div>
+
     <!-- お品書き画像 -->
     <div class="goods-lineup animate-on-scroll">
       <img src="img/goods-lineup.jpg" alt="大響宴 オフィシャルグッズ お品書き" onerror="this.parentElement.innerHTML='<div style=\'padding:5rem 2rem;text-align:center;color:rgba(245,240,230,0.4);font-family:var(--font-gothic);letter-spacing:0.15em;font-size:0.85rem;\'>お品書き画像<br><small style=\'font-size:0.7rem;opacity:0.6;\'>（後日掲載）</small></div>'">
@@ -2494,6 +3507,52 @@ a {
       </p>
     </div>
 
+    <!-- 事前通販 -->
+    <div class="goods-ec-preorder ended animate-on-scroll">
+      <span class="goods-ec-preorder-label">EC Pre-Order</span>
+      <h3 class="goods-ec-preorder-title">事前通販のお知らせ</h3>
+
+      <span class="goods-ec-preorder-ended-badge">受付終了</span>
+
+      <span class="goods-ec-preorder-period-label">販売期間</span>
+      <p class="goods-ec-preorder-period">
+        2026/04/20（月）20:00 〜 05/04（月）23:59
+      </p>
+
+      <a href="https://araki-axiz.stores.jp" target="_blank" rel="noopener" class="goods-ec-preorder-btn">
+        通販サイトへ
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+
+      <details class="goods-ec-preorder-details">
+        <summary>詳細を見る</summary>
+        <div class="goods-ec-preorder-notes">
+          <ul>
+            <li>対象商品は一部のみ（お品書きに記載）</li>
+            <li>事前通販ご購入の方で1会計12,000円ごとに「お見送り会参加券」を同封します（送料除く）</li>
+            <li>自宅配送のみ（会場受取不可）</li>
+            <li>1会計各商品2点まで</li>
+          </ul>
+
+          <div class="goods-ec-preorder-subnotes">
+            <p class="goods-ec-preorder-subnotes-title">【対象商品について】</p>
+            <ul>
+              <li>「大響宴OFFICIALグッズ」のみが対象となります</li>
+              <li>2026年4月21日（火）20:00までに注文完了されたご注文に限り、過去グッズを含む合計金額で判定いたします</li>
+              <li>2026年4月21日（火）20:00以降に注文完了されたご注文は、「大響宴OFFICIALグッズのみ」が対象となり、過去グッズは対象外となります</li>
+            </ul>
+          </div>
+
+          <p class="goods-ec-preorder-footnote">
+            ※注文完了時刻は決済完了時点を基準とします<br>
+            ※ご注文内容の合算はできませんのであらかじめご了承ください
+          </p>
+        </div>
+      </details>
+    </div>
+
     <!-- 購入特典 -->
     <div class="goods-purchase-bonus animate-on-scroll">
       <div class="goods-ribbon">特典</div>
@@ -2501,8 +3560,17 @@ a {
       <h3 class="goods-purchase-bonus-title">購入特典</h3>
       <p class="goods-purchase-bonus-item">お見送り会参加券</p>
       <p class="goods-purchase-bonus-desc">
-        グッズ <strong>¥12,000</strong> お買い上げごとに<br>
-        「お見送り会参加券」を <strong>1枚</strong> 同封／お渡しします
+        大響宴オフィシャルグッズを <strong>¥12,000</strong> お買い上げごとに<br>
+        「お見送り会参加券」を <strong>1枚</strong> 同封／お渡しします<br>
+        <small style="display:inline-block; margin-top:0.6rem; font-size:0.78rem; color:rgba(245,240,230,0.65);">
+          ファンクラブ非会員の方でも本参加券でお見送り会にご参加いただけます
+        </small>
+      </p>
+
+      <p class="goods-purchase-bonus-rule">
+        ※ 本特典は対象商品を税込12,000円ご購入ごとに1枚お渡しします<br>
+        　（事前通販の場合は送料を除く商品代金で判定）<br>
+        ※ お会計／注文をまたいだ合算はできません
       </p>
 
       <div class="goods-purchase-bonus-note">
@@ -2510,10 +3578,41 @@ a {
         <p class="goods-purchase-bonus-note-lead">終演後の「お見送り会」に参加できる券</p>
         <ul>
           <li>昼公演・夜公演どちらでも使用可</li>
-          <li>1枚につき1回のみ使用可（複数枚所持で複数回参加可能）</li>
+          <li>1枚につき1回のみ使用可</li>
+          <li>複数枚お持ちの場合は、一度に消費せずループしてご使用いただきます</li>
           <li>転売・譲渡は禁止</li>
           <li>紛失時の再発行は不可</li>
         </ul>
+      </div>
+
+      <div class="goods-meetgreet-matrix">
+        <p class="goods-meetgreet-matrix-title">お見送り会への参加方法</p>
+        <p class="goods-meetgreet-matrix-lead">以下のいずれかに該当する方がご参加いただけます</p>
+        <div class="goods-meetgreet-matrix-table">
+          <div class="goods-meetgreet-row goods-meetgreet-head">
+            <div>対象</div>
+            <div>必要なもの</div>
+            <div>参加回数</div>
+          </div>
+          <div class="goods-meetgreet-row">
+            <div>FC「あらき組」会員</div>
+            <div>マイページ画面の提示</div>
+            <div>1回</div>
+          </div>
+          <div class="goods-meetgreet-row">
+            <div>お見送り会参加券をお持ちの方</div>
+            <div>お見送り会参加券</div>
+            <div>枚数分</div>
+          </div>
+          <div class="goods-meetgreet-row">
+            <div>両方お持ちの方</div>
+            <div>マイページ画面＋参加券</div>
+            <div>1回＋枚数分</div>
+          </div>
+        </div>
+        <p class="goods-meetgreet-matrix-footnote">
+          ※ FC非会員の方でも、お見送り会参加券をお持ちであればご参加いただけます
+        </p>
       </div>
     </div>
 
@@ -2542,6 +3641,9 @@ a {
         </div>
       </div>
     </div>
+    <p class="goods-benefits-note animate-on-scroll">
+      ※特典は入場時にお渡しします。入場時以外の対応は不可となります。
+    </p>
   </div>
 </section>
 
@@ -2550,6 +3652,64 @@ a {
   <div class="diamond"></div>
   <div class="line"></div>
 </div>
+
+<!-- FC -->
+<section class="section fc" id="fc">
+  <div class="fc-content">
+    <div class="section-header animate-on-scroll">
+      <span class="section-label">FC Exclusive</span>
+      <h2 class="section-title">ファンクラブ特典</h2>
+    </div>
+
+    <div class="fc-list animate-on-scroll">
+      <div class="fc-item">
+        <div class="fc-item-number">1</div>
+        <h3 class="fc-item-title">終演後のお見送り会にご参加いただけます</h3>
+        <ul class="fc-item-list">
+          <li>終演後のフロア内でマイページ画面を開いてお待ちください</li>
+          <li>会員カード（物理カード）は認証にはご利用いただけません</li>
+        </ul>
+        <p class="fc-item-note">
+          <span>※</span> 物販購入特典の「お見送り会参加券」をお持ちの方は複数回ご参加いただけます。<br>
+          <span>※</span> お見送り会参加券を複数枚お持ちの場合、一度に消費するのではなくループしていただきます。
+        </p>
+      </div>
+
+      <div class="fc-item">
+        <div class="fc-item-number">2</div>
+        <h3 class="fc-item-title">会場内のQRコードでFCポイントを獲得</h3>
+        <ul class="fc-item-list">
+          <li>会場内に掲示されているQRコードを読み取ってFCポイントを貯めよう！</li>
+          <li>1日1回まで</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Movie -->
+<section class="section movie" id="movie">
+  <div class="movie-content">
+    <div class="movie-grid animate-on-scroll">
+      <div class="movie-item">
+        <div class="movie-frame">
+          <iframe
+            src="https://www.youtube.com/embed/ElufWTpeXUs"
+            title="あらき - Qualia [Official Music Video]"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="movie-meta">
+          <span class="movie-label">New Release</span>
+          <h3 class="movie-title">Qualia</h3>
+          <p class="movie-sub">Official Music Video</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- Notice -->
 <section class="section notice" id="notice">
@@ -2566,15 +3726,14 @@ a {
       <div class="notice-item-content">
         <ul>
           <li>本公演は【電子チケット／紙チケット】での取り扱いとなります。（通しチケットは電子チケットのみとなります。予めご了承ください。）</li>
-          <li>電子チケットをご利用のお客様は、ローソンチケットアプリのインストールが必要です。</li>
+          <li>電子チケットをご利用のお客様は、ご利用プレイガイドの専用アプリのインストールが必要です。</li>
           <li>チケットご購入後のキャンセル・変更・払戻はできません。</li>
-          <li>チケットお申込者様および同行者様は、ローソンチケットの会員登録が必要です。</li>
-          <li>チケット先行受付のお申込み・お支払い・お受取りに関するお問い合わせは<a href="https://l-tike.com/contact/" target="_blank" style="color: var(--gold); text-decoration: underline;">こちら</a></li>
+          <li>チケットお申込者様および同行者様は、ご利用プレイガイドの会員登録が必要です。</li>
+          <li>チケットお申込み・お支払い・お受取りに関するお問い合わせは、ご利用の各プレイガイドへ直接お問い合わせください。</li>
           <li>営利目的でのご購入および転売を禁止いたします。</li>
           <li>車椅子でご来場の場合は、チケットご購入後、事前に各公演のお問い合わせ先までご連絡をお願いいたします。</li>
           <li>未就学児童入場不可</li>
           <li>入場時、ドリンク代が別途必要となります</li>
-          <li>先行販売で規定枚数に達し次第、受付を終了させていただきます。その場合、一般発売はございませんので予めご了承ください。</li>
         </ul>
       </div>
     </details>
@@ -2587,6 +3746,20 @@ a {
           <li>鋭利なアクセサリー、長いチェーンやストラップは接触事故防止のため着用をお控えください</li>
           <li>極端に大きな帽子や装飾は後方のお客様の視界を遮るためご遠慮ください</li>
           <li>客席内での撮影/録音/録画行為は一切禁止とさせていただきます</li>
+        </ul>
+      </div>
+    </details>
+    <details class="notice-item">
+      <summary>事前通販について</summary>
+      <div class="notice-item-content">
+        <ul>
+          <li>販売期間：2026/04/20（月）20:00 〜 05/04（月）23:59</li>
+          <li>対象商品は一部のみ（お品書きに記載）</li>
+          <li>自宅配送のみ（会場受取不可）</li>
+          <li>1会計各商品2点まで</li>
+          <li>ご注文内容の合算はできません（EC＋会場であわせて12,000円→不可）</li>
+          <li>お見送り会参加券：対象商品を税込12,000円ご購入ごとに1枚同封<br>（※送料除く。注文をまたいだ合算はできません）</li>
+          <li>通販サイト：<a href="https://araki-axiz.stores.jp" target="_blank" rel="noopener" style="color: var(--gold); text-decoration: underline;">https://araki-axiz.stores.jp</a></li>
         </ul>
       </div>
     </details>

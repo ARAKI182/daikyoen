@@ -31,3 +31,7 @@ goods_announce/
 # ===== 一時ファイル =====
 *.tmp
 *.bak
+
+# ===== 手動バックアップ =====
+*_archive_*.html
+*_backup_*.html
